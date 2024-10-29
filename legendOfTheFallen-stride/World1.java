@@ -6,13 +6,13 @@ import greenfoot.*;
 /**
  * 
  */
-public class MyWorld extends World
+public class World1 extends World
 {
 
     /**
-     * Constructor for objects of class MyWorld.
+     * Constructor for objects of class World1.
      */
-    public MyWorld()
+    public World1()
     {
         super(600, 400, 1);
         prepare();
@@ -24,7 +24,10 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Knight knight =  new  Knight();
-        addObject(knight, 176, 174);
+        StonePlatform stonePlatform =  new StonePlatform();
+        addObject(stonePlatform, 285, 255);
+        stonePlatform.setLocation(163, 257);
+        Knight knight =  new Knight();
+        addObject(knight, 460, 261);
     }
 }
