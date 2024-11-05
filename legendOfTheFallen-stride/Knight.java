@@ -7,9 +7,10 @@ import greenfoot.*;
  */
 public class Knight extends Actor
 {
-    private double gravity = 2;
-    private double ySpeed = 0.2;
-    private GifImage knightGif =  new  GifImage("knight_walking.gif");
+    private double gravity = Settings.gravity;
+    private double ySpeed = Settings.ySpeed;
+    private GifImage knightGif =  Settings.knightGif;
+    
     private long dashCD = 0;
     private int jumps = 1;
     private double knightBottomY;
@@ -18,7 +19,7 @@ public class Knight extends Actor
      */
     public void act()
     {
-        knightBottomY = getY()+248/2;
+        knightBottomY = getY() + Settings.knightHeight / 2;
         setImage(knightGif.getCurrentImage());
         
         move();
@@ -41,9 +42,11 @@ public class Knight extends Actor
         if (Greenfoot.isKeyDown("A") || (Greenfoot.isKeyDown("left"))) {
             move(-5);
         }
+        
         if (Greenfoot.isKeyDown("D") || (Greenfoot.isKeyDown("right"))) {
             move(5);
         }
+    
         if (Greenfoot.isKeyDown("space") && jumps == 1){
             setLocation(getX(), getY() - 5);
             gravity = -7.0;
@@ -51,25 +54,33 @@ public class Knight extends Actor
         }
         dash();
     }
+    
     public void dash(){
         if (Greenfoot.isKeyDown("shift") && Greenfoot.isKeyDown("D") && dashCD -  System.currentTimeMillis()/1000 <= 0){
             move(70);
             dashCD = System.currentTimeMillis()/1000 + 1;
         }
     }
+    
     public void checkCollisions(){
-        CollidePlatform();
-        isTouchingGround();
+        
+        if (isTouchingGround() || CollidePlatform()){
+            jumps = 1;
+        }
     }
-    public void CollidePlatform (){
+    
+    public boolean CollidePlatform (){
         if (isTouching(StonePlatform.class)){
             gravity = 0;
-            jumps = 1;
+            return true;
         }
+        return false;
     }
-    public void isTouchingGround(){
+    
+    public boolean isTouchingGround(){
         if (knightBottomY >= 400){
-            jumps = 1;
+            return true;
         }
+        return false;
     }
 }
