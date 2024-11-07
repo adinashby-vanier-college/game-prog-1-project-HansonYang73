@@ -24,10 +24,13 @@ public class World1 extends World
      */
     private void prepare()
     {
-        StonePlatform stonePlatform =  new StonePlatform();
+        StonePlatform stonePlatform =  new  StonePlatform();
         addObject(stonePlatform, 285, 255);
         stonePlatform.setLocation(163, 257);
-        Knight knight =  new Knight();
+        Knight knight =  new  Knight();
         addObject(knight, 460, 261);
+        stonePlatform.setLocation(167, 320);
+        Attack attack =  new  Attack();
+        addObject(attack, 397, 136);
     }
 }

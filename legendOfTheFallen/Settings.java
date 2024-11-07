@@ -11,13 +11,14 @@ public class Settings
     static double gravity = 2;
     static double ySpeed = 0.2;
     
-    static long dashCD = 0;
+    static long dashCD = 1000; // 1000 milisecond (1 sec)
+    static int dashDist = 100;
     static int jumps = 1;
     
     // Knight Setting
     static GifImage knightGif =  new  GifImage("knight_walking.gif");
-    static double knightWidth = knightGif.getImages().get(0).getWidth();
-    static double knightHeight = knightGif.getImages().get(0).getHeight();
+    static int knightWidth = knightGif.getImages().get(0).getWidth();
+    static int knightHeight = knightGif.getImages().get(0).getHeight();
     
 
     /**

@@ -30,6 +30,9 @@ That is: create the initial objects and add them to the world.</javadoc>
                 <call expression="stonePlatform.setLocation(163,257)" expression-java="stonePlatform.setLocation(163, 257)" enable="true"/>
                 <variable type="Knight" type-java="Knight" name="knight" value="new Knight()" value-java=" new Knight()" enable="true"/>
                 <call expression="addObject(knight,460,261)" expression-java="addObject(knight, 460, 261)" enable="true"/>
+                <call expression="stonePlatform.setLocation(167,320)" expression-java="stonePlatform.setLocation(167, 320)" enable="true"/>
+                <variable type="Attack" type-java="Attack" name="attack" value="new Attack()" value-java=" new Attack()" enable="true"/>
+                <call expression="addObject(attack,397,136)" expression-java="addObject(attack, 397, 136)" enable="true"/>
             </body>
         </method>
     </methods>
