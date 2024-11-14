@@ -5,11 +5,13 @@ import greenfoot.*;
 /**
  * 
  */
-public class Attack extends Actor
+public class EnemyAttack extends Actor
 {
     private SimpleTimer timer = new SimpleTimer();
-    private double DMG = Settings.baseDMG;
-    public Attack(){
+    private double DMG = Settings.enemyBaseDMG;
+    private boolean canParry = true;
+    
+    public EnemyAttack(){
         
         scaleImage();
         timer.mark();
@@ -19,8 +21,14 @@ public class Attack extends Actor
      */
     public void act()
     {
-        
-        if (timer.millisElapsed() >= 200){
+        if (canParry && isTouching(Parry.class)){
+            // can not attack
+            // mult dmg
+            // speed = 0 (stun)
+            // stun time
+        }
+        else if (timer.millisElapsed() >= 200){
+            canParry = false;
             getWorld().removeObject(this);
         }
     }

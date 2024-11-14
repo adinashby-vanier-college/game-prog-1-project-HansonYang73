@@ -8,9 +8,8 @@ import greenfoot.*;
 public class Knight extends Actor
 {
     private double gravity = Settings.gravity;
-    private double ySpeed = Settings.ySpeed;
     private GifImage knightGif =  Settings.knightGif;
-    private boolean isFacingRight = true;
+    private int isFacingRight = 1;
     
     private long dashCD = Settings.dashCD;
     private int dashDist = Settings.dashDist;
@@ -26,11 +25,12 @@ public class Knight extends Actor
     {
         knightBottomY = getY() + Settings.knightHeight / 2;
         setImage(knightGif.getCurrentImage());
+        createAttack();
         move();
         if (knightBottomY < 400) {
             int roundGravity = (int) gravity;
             setLocation(getX(), getY() + roundGravity);
-            gravity += ySpeed;
+            gravity += Settings.ySpeed;
             
         }
         checkCollisions();
@@ -116,20 +116,28 @@ public class Knight extends Actor
     }
     
     public void faceLeft(){
-        if (isFacingRight){
+        if (isFacingRight == 1){
             for (GreenfootImage image : knightGif.getImages()){
                 image.mirrorHorizontally();
             }
         }
-        isFacingRight = false;
+        isFacingRight = -1;
     }
     
     public void faceRight(){
-        if (!isFacingRight){
+        if (isFacingRight == -1){
             for (GreenfootImage image : knightGif.getImages()){
                 image.mirrorHorizontally();
             }
         }
-        isFacingRight = true;
+        isFacingRight = 1;
+    }
+    
+    public void createAttack(){
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if (Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("J")){
+            Attack attack = new Attack();
+            getWorld().addObject(attack, getX() + (50 * isFacingRight), getY());
+        }
     }
 }

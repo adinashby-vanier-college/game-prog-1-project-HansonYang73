@@ -19,6 +19,18 @@ public class Settings
     static GifImage knightGif =  new  GifImage("knight_walking.gif");
     static int knightWidth = knightGif.getImages().get(0).getWidth();
     static int knightHeight = knightGif.getImages().get(0).getHeight();
+    static double baseDMG = 20;
+    
+    // Enemy Settings
+    static double enemyBaseDMG = 20;
+    static double enemySpeed = 1;
+    
+    // Zombie Settings
+    static GreenfootImage zombieImage = new GreenfootImage("zombie.png");
+    static int zombieWidth = zombieImage.getWidth();
+    static int zombieHeight = zombieImage.getHeight();
+    static double zombieHP = 100;
+    static double zombieDMGMult = 1;
     
 
     /**

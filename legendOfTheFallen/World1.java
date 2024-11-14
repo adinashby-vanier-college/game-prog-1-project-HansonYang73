@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -14,7 +13,7 @@ public class World1 extends World
      */
     public World1()
     {
-        super(600, 400, 1);
+        super(1000, 400, 1);
         prepare();
     }
 
@@ -30,7 +29,10 @@ public class World1 extends World
         Knight knight =  new  Knight();
         addObject(knight, 460, 261);
         stonePlatform.setLocation(167, 320);
-        Attack attack =  new  Attack();
-        addObject(attack, 397, 136);
+        for (int i = 0; i < 20; i++){
+            Zombie zombie = new Zombie();
+            addObject(zombie,(int) (Math.random()*1000),134);
+        }
+        
     }
 }

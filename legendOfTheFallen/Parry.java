@@ -5,11 +5,11 @@ import greenfoot.*;
 /**
  * 
  */
-public class Attack extends Actor
+public class Parry extends Actor
 {
     private SimpleTimer timer = new SimpleTimer();
-    private double DMG = Settings.baseDMG;
-    public Attack(){
+    
+    public Parry(){
         
         scaleImage();
         timer.mark();
@@ -20,14 +20,11 @@ public class Attack extends Actor
     public void act()
     {
         
-        if (timer.millisElapsed() >= 200){
+        if (timer.millisElapsed() >= 20){
             getWorld().removeObject(this);
         }
     }
 
-    public double getDMG(){
-        return DMG;
-    }
     public void scaleImage(){
         getImage().scale(20, 15);
     }
