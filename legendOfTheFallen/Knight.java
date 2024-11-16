@@ -15,32 +15,46 @@ public class Knight extends Actor
     private int dashDist = Settings.dashDist;
     private int jumps = 1;
     private double knightBottomY;
+    private double knightTopY;
+    private double hp = Settings.knightMaxHp;
+    private HpBar knightHpBar = new HpBar();
     
-    private SimpleTimer timer = new SimpleTimer();
+    private SimpleTimer dashTimer = new SimpleTimer();
+    private SimpleTimer atkTimer = new SimpleTimer();
+    private SimpleTimer healTimer = new SimpleTimer();
     
-    /**
-     * Act - do whatever the Knight wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private boolean isAlive = true;
+    
     public void act()
     {
         knightBottomY = getY() + Settings.knightHeight / 2;
-        setImage(knightGif.getCurrentImage());
-        createAttack();
-        move();
+        knightTopY = getY() - Settings.knightHeight / 2;
+        if (isAlive){
+            if (isMoving()){
+                setImage(knightGif.getCurrentImage());
+            }
+            else{
+                setImage(Settings.knightFrame1);
+            }
+            drawHp();
+            createAtk();
+            move();
+            applyGravity();
+            checkCollisions();
+            drinkPotion();
+            checkDed();
+        }
+        System.out.println(getWorld().getObjects(HpBar.class));
+    }
+
+    public void applyGravity(){
         if (knightBottomY < 400) {
             int roundGravity = (int) gravity;
             setLocation(getX(), getY() + roundGravity);
             gravity += Settings.ySpeed;
             
         }
-        checkCollisions();
     }
-
-    /**
-     * Controls the pig using awsd or arrow keys
-     * left and right respectively turn the pig left and right
-     * up and down respectively moves the pig towards the direction that he is pointing or the opposite direction
-     */
     public void move()
     {
         if (Greenfoot.isKeyDown("A") || (Greenfoot.isKeyDown("left"))) {
@@ -63,15 +77,22 @@ public class Knight extends Actor
         dash();
     }
     
+    public boolean isMoving(){
+        if (Greenfoot.isKeyDown("D") || (Greenfoot.isKeyDown("right")) || Greenfoot.isKeyDown("A") || (Greenfoot.isKeyDown("left"))){
+            return true;
+        }
+        return false;
+    }
+    
     public void dash(){
-        if (Greenfoot.isKeyDown("shift") && Greenfoot.isKeyDown("D") && timer.millisElapsed() >= dashCD){
+        if (Greenfoot.isKeyDown("shift") && Greenfoot.isKeyDown("D") && dashTimer.millisElapsed() >= dashCD){
             move(dashDist);
-            timer.mark();
+            dashTimer.mark();
         }
         
-        if (Greenfoot.isKeyDown("shift") && Greenfoot.isKeyDown("A") && timer.millisElapsed() >= dashCD){
+        if (Greenfoot.isKeyDown("shift") && Greenfoot.isKeyDown("A") && dashTimer.millisElapsed() >= dashCD){
             move(-dashDist);
-            timer.mark();
+            dashTimer.mark();
         }
     }
     
@@ -133,11 +154,44 @@ public class Knight extends Actor
         isFacingRight = 1;
     }
     
-    public void createAttack(){
+    public void createAtk(){
         MouseInfo mouse = Greenfoot.getMouseInfo();
-        if (Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("J")){
+        if ((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("J")) && atkTimer.millisElapsed() >= Settings.baseAtkCd){
             Attack attack = new Attack();
             getWorld().addObject(attack, getX() + (50 * isFacingRight), getY());
+            atkTimer.mark();
         }
+    }
+    
+    public void atkToKnight(double atk){
+        hp -= atk;
+    }
+    
+    public void checkDed(){
+        if (hp <= 0){
+            setImage(new GreenfootImage("Game Over", 200, Color.RED, new Color(0,0,0,0 )));
+            setLocation(Settings.worldWidth/2, Settings.worldHeight/2);
+            
+            getWorld().removeObject(knightHpBar);
+        }
+    }
+    
+    public void drawHp(){
+        getWorld().addObject(knightHpBar, 0, 0);
+        knightHpBar.setSize(hp);
+        knightHpBar.setPosX(getX());
+        knightHpBar.setPosY(knightTopY);
+    }
+    
+    public void drinkPotion(){
+        if (Potion.amount > 0 && hp < Settings.knightMaxHp && healTimer.millisElapsed() >= Settings.healCd && Greenfoot.isKeyDown("F")){
+            Potion.amount--;
+            hp += Settings.healAmount;
+            if (hp > Settings.knightMaxHp){
+                hp = Settings.knightMaxHp;
+            }
+            healTimer.mark();
+        }
+        
     }
 }

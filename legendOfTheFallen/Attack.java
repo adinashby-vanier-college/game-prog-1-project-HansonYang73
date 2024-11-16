@@ -8,7 +8,7 @@ import greenfoot.*;
 public class Attack extends Actor
 {
     private SimpleTimer timer = new SimpleTimer();
-    private double DMG = Settings.baseDMG;
+    private double atk = Settings.baseAtk;
     public Attack(){
         
         scaleImage();
@@ -19,16 +19,21 @@ public class Attack extends Actor
      */
     public void act()
     {
-        
-        if (timer.millisElapsed() >= 200){
+        attackEnemy();
+        if (timer.millisElapsed() >= Settings.atkTime){
+            getWorld().removeObject(this);
+        }
+    }
+    
+    public void attackEnemy(){
+        Enemy enemy = (Enemy) getOneIntersectingObject(Enemy.class);
+        if (enemy != null){
+            enemy.atkToEnemy(atk);
             getWorld().removeObject(this);
         }
     }
 
-    public double getDMG(){
-        return DMG;
-    }
     public void scaleImage(){
-        getImage().scale(20, 15);
+        getImage().scale(20, 50);
     }
 }

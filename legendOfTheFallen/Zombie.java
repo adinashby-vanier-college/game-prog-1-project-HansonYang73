@@ -7,9 +7,10 @@ import greenfoot.*;
  */
 public class Zombie extends Enemy
 {
-    private double hp = Settings.zombieHP;
-    private double zombieBottomY;
+    protected SimpleTimer atkTimer = new SimpleTimer();
+    
     public Zombie(){
+        super(Settings.zombieHP);
         getImage().scale(Settings.zombieWidth/5, Settings.zombieHeight/5);
     }
     
@@ -18,28 +19,19 @@ public class Zombie extends Enemy
      */
     public void act()
     {
-        zombieBottomY = getY() + Settings.zombieHeight/5 / 2;
+        enemyBottomY = getY() + Settings.zombieHeight/5 / 2;
+        enemyTopY = getY() - Settings.zombieHeight/5 / 2 - 10;
         
-        getsAttacked();
+        drawHp();
         moveToKnight();
-        gravity(zombieBottomY);
+        gravity(enemyBottomY);
+        if (isAtkDist()){
+            createAtk(atkTimer);
+        }
         checkDed();
     }
+
     
-    public void getsAttacked(){
-        Attack attack = (Attack) getOneIntersectingObject(Attack.class);
-        
-        if (attack != null){
-            hp -= attack.getDMG();
-            getWorld().removeObject(attack);
-        }
-    }
-    
-    public void checkDed(){
-        if (hp <= 0){
-            getWorld().removeObject(this);
-        }
-    }
     
    
 }

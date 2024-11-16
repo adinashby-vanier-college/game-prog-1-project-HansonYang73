@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=HpBar
+comment0.text=\r\n\ \r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=size
+comment2.target=void\ setSize(double)
+comment3.params=posX
+comment3.target=void\ setPosX(double)
+comment4.params=posY
+comment4.target=void\ setPosY(double)
+numComments=5

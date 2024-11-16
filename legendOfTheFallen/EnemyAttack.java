@@ -8,34 +8,28 @@ import greenfoot.*;
 public class EnemyAttack extends Actor
 {
     private SimpleTimer timer = new SimpleTimer();
-    private double DMG = Settings.enemyBaseDMG;
-    private boolean canParry = true;
+    public double atk = Settings.enemyBaseAtk;
     
     public EnemyAttack(){
-        
         scaleImage();
-        timer.mark();
     }
-    /**
-     * Act - do whatever the Attack wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
     public void act()
     {
-        if (canParry && isTouching(Parry.class)){
-            // can not attack
-            // mult dmg
-            // speed = 0 (stun)
-            // stun time
-        }
-        else if (timer.millisElapsed() >= 200){
-            canParry = false;
+        attackKnight();
+        if (timer.millisElapsed() >= Settings.enemyAtkTime){
             getWorld().removeObject(this);
         }
     }
 
-    public double getDMG(){
-        return DMG;
+    public void attackKnight(){
+        Knight knight = (Knight) getOneIntersectingObject(Knight.class);
+        if (knight != null){
+            knight.atkToKnight(atk);
+            getWorld().removeObject(this);
+        }
     }
+    
     public void scaleImage(){
         getImage().scale(20, 15);
     }

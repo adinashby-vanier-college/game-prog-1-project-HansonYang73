@@ -13,7 +13,7 @@ public class World1 extends World
      */
     public World1()
     {
-        super(1000, 400, 1);
+        super(Settings.worldWidth, Settings.worldHeight, 1);
         prepare();
     }
 
@@ -29,10 +29,13 @@ public class World1 extends World
         Knight knight =  new  Knight();
         addObject(knight, 460, 261);
         stonePlatform.setLocation(167, 320);
-        for (int i = 0; i < 20; i++){
-            Zombie zombie = new Zombie();
-            addObject(zombie,(int) (Math.random()*1000),134);
-        }
-        
+
+        Zombie zombie = new Zombie();
+        addObject(zombie,819,259);
+        Potion potion = new Potion();
+        addObject(potion,62,24);
+        potion.setLocation(21,36);
+        PotionText potionText = new PotionText();
+        addObject(potionText,54,40);
     }
 }
