@@ -13,12 +13,18 @@ public class Enemy extends Actor
     protected HpBar enemyHpBar;
     protected double enemyBottomY;
     protected double enemyTopY;
+    protected int speed = (int) Settings.enemySpeed;
+    
+    protected SimpleTimer stunTimer;
+    protected boolean isStun;
     
     public Enemy(double enemyHp){
         gravity = Settings.gravity;
         isFacingRight = -1;
         hp = enemyHp;
         enemyHpBar = new HpBar();
+        stunTimer = new SimpleTimer();
+        isStun = false;
     }
     
     public void moveToKnight(){
@@ -27,11 +33,11 @@ public class Enemy extends Actor
         
         if (distFromKnight <= Settings.aggroDist && !isTouching(Knight.class)){ 
             if (knight.getX() > getX()){
-                move((int) Settings.enemySpeed);
+                move(speed);
                 faceRight();
             }
             else if (knight.getX() < getX()){
-                move((int) -Settings.enemySpeed);
+                move(-speed);
                 faceLeft();
             }
         }
@@ -50,7 +56,7 @@ public class Enemy extends Actor
     public void createAtk(SimpleTimer atkTimer){
         //Creates a parry first and if the knight didnt parry the attack, it will spawn the actual attack
         if (atkTimer.millisElapsed() >= Settings.baseEnemyAtkCD ){
-            Parry attack = new Parry();
+            Parry attack = new Parry(this);
             getWorld().addObject(attack, getX() + (30 * isFacingRight), getY());
             atkTimer.mark();   
         }
@@ -85,6 +91,13 @@ public class Enemy extends Actor
     
     public void checkDed(){
         if (hp <= 0){
+            Actor dizzy = getOneIntersectingObject(Dizzy.class);
+            for (Actor parry: getWorld().getObjects(Parry.class)){
+                getWorld().removeObject(parry);
+            }
+            if (dizzy != null){
+                getWorld().removeObject(dizzy);
+            }
             getWorld().removeObject(enemyHpBar);
             getWorld().removeObject(this);
         }
@@ -94,6 +107,20 @@ public class Enemy extends Actor
         getWorld().addObject(enemyHpBar, 0, 0);
         enemyHpBar.setSize(hp);
         enemyHpBar.setPosX(getX());
-        enemyHpBar.setPosY(enemyTopY);
+        enemyHpBar.setPosY(enemyTopY - 10);
+    }
+    
+    public void stun(){
+        stunTimer.mark();
+        isStun = true;
+        getWorld().addObject(new Dizzy(), getX(), (int) enemyTopY + 10);
+    }
+    
+    public void unstun(){
+        if (stunTimer.millisElapsed() >= Settings.stunTime){
+            isStun = false;
+            getWorld().removeObject(getOneIntersectingObject(Dizzy.class));
+        }
+        
     }
 }

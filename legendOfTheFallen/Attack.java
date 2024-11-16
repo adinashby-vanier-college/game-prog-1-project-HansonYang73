@@ -9,8 +9,8 @@ public class Attack extends Actor
 {
     private SimpleTimer timer = new SimpleTimer();
     private double atk = Settings.baseAtk;
-    public Attack(){
-        
+    public Attack(double mult){
+        atk *= mult;
         scaleImage();
         timer.mark();
     }
@@ -28,9 +28,18 @@ public class Attack extends Actor
     public void attackEnemy(){
         Enemy enemy = (Enemy) getOneIntersectingObject(Enemy.class);
         if (enemy != null){
-            enemy.atkToEnemy(atk);
+            if (enemy.isStun){
+                enemy.atkToEnemy(atk * 1.5);
+            }
+            else{
+                enemy.atkToEnemy(atk);
+            }
             getWorld().removeObject(this);
         }
+    }
+    
+    public double getAtk(){
+        return atk;
     }
 
     public void scaleImage(){

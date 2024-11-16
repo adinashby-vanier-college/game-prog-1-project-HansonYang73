@@ -19,6 +19,8 @@ public class Knight extends Actor
     private double hp = Settings.knightMaxHp;
     private HpBar knightHpBar = new HpBar();
     
+    private double weaponMult = 1;
+    
     private SimpleTimer dashTimer = new SimpleTimer();
     private SimpleTimer atkTimer = new SimpleTimer();
     private SimpleTimer healTimer = new SimpleTimer();
@@ -44,7 +46,6 @@ public class Knight extends Actor
             drinkPotion();
             checkDed();
         }
-        System.out.println(getWorld().getObjects(HpBar.class));
     }
 
     public void applyGravity(){
@@ -157,7 +158,7 @@ public class Knight extends Actor
     public void createAtk(){
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if ((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("J")) && atkTimer.millisElapsed() >= Settings.baseAtkCd){
-            Attack attack = new Attack();
+            Attack attack = new Attack(weaponMult);
             getWorld().addObject(attack, getX() + (50 * isFacingRight), getY());
             atkTimer.mark();
         }

@@ -23,11 +23,19 @@ public class Zombie extends Enemy
         enemyTopY = getY() - Settings.zombieHeight/5 / 2 - 10;
         
         drawHp();
-        moveToKnight();
         gravity(enemyBottomY);
-        if (isAtkDist()){
+        
+        if (!isStun){
+            moveToKnight();
+            if (isAtkDist()){
             createAtk(atkTimer);
+            }
         }
+        
+        if (stunTimer.millisElapsed() >= Settings.stunTime){
+            unstun();
+        }
+    
         checkDed();
     }
 

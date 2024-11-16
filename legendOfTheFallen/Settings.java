@@ -16,9 +16,10 @@ public class Settings
     static int worldHeight = 400;
     
     // Attack & Parry Settings
-    static int parryTime = 200; // in millisecond
+    static int parryTime = 2000; // in millisecond
+    static int stunTime = 3000; //in ms
     static int atkTime = 200; // in millisecond
-    static int enemyAtkTime = 2000; // in millisecond
+    static int enemyAtkTime = 200; // in millisecond
     static int baseAtkCD = 400; // in millisecond
     static int baseEnemyAtkCD = 2000; // in millisecond
     
