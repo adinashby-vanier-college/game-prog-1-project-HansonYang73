@@ -14,17 +14,21 @@ public class Enemy extends Actor
     protected HpBar enemyHpBar;
     protected double enemyBottomY;
     protected double enemyTopY;
-    protected int speed = (int) Settings.enemySpeed;
+    protected int speed;
+    protected double atk;
     
     protected SimpleTimer stunTimer;
     protected boolean isStun;
     
-    public Enemy(double enemyHp, double enemyMaxHp){
+    public Enemy(double enemyHp, double enemyMaxHp, int enemySpeed, double enemyAtk){
         gravity = Settings.gravity;
         isFacingRight = -1;
         hp = enemyHp;
         maxHp = enemyMaxHp;
         enemyHpBar = new HpBar();
+        speed = enemySpeed;
+        atk = enemyAtk;
+        
         stunTimer = new SimpleTimer();
         isStun = false;
     }

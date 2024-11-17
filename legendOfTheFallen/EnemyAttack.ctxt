@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=EnemyAttack
 comment0.text=\r\n\ \r\n
-comment1.params=
-comment1.target=EnemyAttack()
+comment1.params=enemyAtk
+comment1.target=EnemyAttack(double)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=

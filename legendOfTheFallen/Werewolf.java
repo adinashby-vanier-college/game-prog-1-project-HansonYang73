@@ -5,21 +5,18 @@ import greenfoot.*;
 /**
  * 
  */
-public class Zombie extends Enemy
+public class Werewolf extends Enemy
 {
     protected SimpleTimer atkTimer = new SimpleTimer();
     
-    public Zombie(){
-        super(Settings.zombieHP, Settings.zombieMaxHp, Settings.zombieSpeed, Settings.zombieAtk);
+    public Werewolf(){
+        super(Settings.werewolfHP, Settings.werewolfMaxHp, Settings.werewolfSpeed, Settings.werewolfAtk);
     }
     
-    /**
-     * Act - do whatever the Zombie wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
-        enemyBottomY = getY() + Settings.zombieHeight / 2;
-        enemyTopY = getY() - Settings.zombieHeight / 2 - 10;
+        enemyBottomY = getY() + Settings.werewolfHeight / 2;
+        enemyTopY = getY() - Settings.werewolfHeight / 2 - 10;
         
         drawHp();
         gravity(enemyBottomY);
@@ -37,8 +34,4 @@ public class Zombie extends Enemy
     
         checkDed();
     }
-
-    
-    
-   
 }

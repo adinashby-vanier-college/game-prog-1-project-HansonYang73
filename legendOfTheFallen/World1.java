@@ -37,5 +37,8 @@ public class World1 extends World
         potion.setLocation(21,36);
         PotionText potionText = new PotionText();
         addObject(potionText,54,40);
+        Werewolf werewolf = new Werewolf();
+        addObject(werewolf,777,263);
+        removeObject(zombie);
     }
 }

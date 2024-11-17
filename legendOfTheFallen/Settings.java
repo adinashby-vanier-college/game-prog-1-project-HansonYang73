@@ -36,8 +36,6 @@ public class Settings
     static double knightMaxHp = 100;
     
     // Enemy Settings
-    static double enemyBaseAtk = 20;
-    static double enemySpeed = 1;
     static double aggroDist = 400; // in cell-size
     static double atkDist = 100; // in cell-size
     
@@ -45,9 +43,19 @@ public class Settings
     static GreenfootImage zombieImage = new GreenfootImage("zombie.png");
     static int zombieWidth = zombieImage.getWidth();
     static int zombieHeight = zombieImage.getHeight();
+    static double zombieAtk = 20;
+    static int zombieSpeed = 2;
     static int zombieMaxHp = 100;
     static double zombieHP = 100;
-    static double zombieAtkMult = 1;
+    
+    // Werewolf Settings
+    static GreenfootImage werewolfImage = new GreenfootImage("werewolf.png");
+    static int werewolfWidth = werewolfImage.getWidth();
+    static int werewolfHeight = werewolfImage.getHeight();
+    static double werewolfAtk = 25;
+    static int werewolfSpeed = 1;
+    static int werewolfMaxHp = 140;
+    static double werewolfHP = 140;
     
     // Potion Setting
     static GreenfootImage potionImage = new GreenfootImage("potion.png");

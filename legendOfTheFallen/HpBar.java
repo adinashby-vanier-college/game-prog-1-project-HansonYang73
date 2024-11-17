@@ -17,7 +17,7 @@ public class HpBar extends Actor
         bg.fill();
 
         GreenfootImage hpBar = new GreenfootImage((int) maxSize + 2, 12);
-        hpBar.drawRect(0, 0, (int) Settings.knightMaxHp+1, 11);
+        hpBar.drawRect(0, 0, (int) maxSize+1, 11);
         hpBar.setColor(Color.RED);
         hpBar.fillRect(1, 1, (int) size, 10);
 
@@ -25,8 +25,6 @@ public class HpBar extends Actor
         
         setImage(bg);
         setLocation((int) posX, (int) posY);
-
-        
 
     }
     

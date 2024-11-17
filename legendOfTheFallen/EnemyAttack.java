@@ -8,9 +8,10 @@ import greenfoot.*;
 public class EnemyAttack extends Actor
 {
     private SimpleTimer timer = new SimpleTimer();
-    public double atk = Settings.enemyBaseAtk;
+    public double atk;
     
-    public EnemyAttack(){
+    public EnemyAttack(double enemyAtk){
+        atk = enemyAtk;
         scaleImage();
     }
     
