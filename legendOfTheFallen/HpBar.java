@@ -7,16 +7,16 @@ import greenfoot.*;
  */
 public class HpBar extends Actor
 {
-    private double size, posX, posY;
+    private double size, maxSize, posX, posY;
     
 
     public void act()
     {
-        GreenfootImage bg = new GreenfootImage((int) Settings.knightMaxHp + 2, 12);
+        GreenfootImage bg = new GreenfootImage((int) maxSize + 2, 12);
         bg.setColor(Color.GRAY);
         bg.fill();
 
-        GreenfootImage hpBar = new GreenfootImage((int) Settings.knightMaxHp + 2, 12);
+        GreenfootImage hpBar = new GreenfootImage((int) maxSize + 2, 12);
         hpBar.drawRect(0, 0, (int) Settings.knightMaxHp+1, 11);
         hpBar.setColor(Color.RED);
         hpBar.fillRect(1, 1, (int) size, 10);
@@ -32,6 +32,10 @@ public class HpBar extends Actor
     
     public void setSize(double size){
         this.size = size;
+    }
+    
+    public void setMaxSize(double maxSize){
+        this.maxSize = maxSize;
     }
     
     public void setPosX(double posX){

@@ -10,6 +10,7 @@ public class Enemy extends Actor
     protected double gravity;
     protected int isFacingRight;
     protected double hp;
+    protected double maxHp;
     protected HpBar enemyHpBar;
     protected double enemyBottomY;
     protected double enemyTopY;
@@ -18,10 +19,11 @@ public class Enemy extends Actor
     protected SimpleTimer stunTimer;
     protected boolean isStun;
     
-    public Enemy(double enemyHp){
+    public Enemy(double enemyHp, double enemyMaxHp){
         gravity = Settings.gravity;
         isFacingRight = -1;
         hp = enemyHp;
+        maxHp = enemyMaxHp;
         enemyHpBar = new HpBar();
         stunTimer = new SimpleTimer();
         isStun = false;
@@ -106,6 +108,7 @@ public class Enemy extends Actor
     public void drawHp(){
         getWorld().addObject(enemyHpBar, 0, 0);
         enemyHpBar.setSize(hp);
+        enemyHpBar.setMaxSize(maxHp);
         enemyHpBar.setPosX(getX());
         enemyHpBar.setPosY(enemyTopY - 10);
     }

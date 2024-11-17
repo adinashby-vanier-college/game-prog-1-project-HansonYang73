@@ -10,7 +10,7 @@ public class Zombie extends Enemy
     protected SimpleTimer atkTimer = new SimpleTimer();
     
     public Zombie(){
-        super(Settings.zombieHP);
+        super(Settings.zombieHP, Settings.zombieMaxHp);
         getImage().scale(Settings.zombieWidth/5, Settings.zombieHeight/5);
     }
     

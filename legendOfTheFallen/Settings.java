@@ -16,11 +16,11 @@ public class Settings
     static int worldHeight = 400;
     
     // Attack & Parry Settings
-    static int parryTime = 2000; // in millisecond
-    static int stunTime = 3000; //in ms
+    static int parryTime = 200; // in millisecond
+    static int stunTime = 2000; //in ms
     static int atkTime = 200; // in millisecond
     static int enemyAtkTime = 200; // in millisecond
-    static int baseAtkCD = 400; // in millisecond
+    static int baseAtkCD = 500; // in millisecond
     static int baseEnemyAtkCD = 2000; // in millisecond
     
     // Knight Setting
@@ -29,7 +29,7 @@ public class Settings
     static int knightWidth = knightFrame1.getWidth();
     static int knightHeight = knightFrame1.getHeight();
     static double baseAtk = 20;
-    static double baseAtkCd = 400; //in milisecond
+    static double knightAtkMult = 1;
     static long dashCD = 1000; // in milisecond
     static int dashDist = 100;
     static int jumps = 1;
@@ -45,6 +45,7 @@ public class Settings
     static GreenfootImage zombieImage = new GreenfootImage("zombie.png");
     static int zombieWidth = zombieImage.getWidth();
     static int zombieHeight = zombieImage.getHeight();
+    static int zombieMaxHp = 100;
     static double zombieHP = 100;
     static double zombieAtkMult = 1;
     
@@ -54,5 +55,9 @@ public class Settings
     static int potionHeight = potionImage.getHeight();
     static int healAmount = 50;
     static int healCd = 1000;
+    
+    // Artifact Settings
+    static int lifesteal = 0;
+    static int regen = 0;
     
 }

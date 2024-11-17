@@ -34,6 +34,9 @@ public class Attack extends Actor
             else{
                 enemy.atkToEnemy(atk);
             }
+            //lifesteal
+            Knight knight = getWorld().getObjects(Knight.class).get(0);
+            knight.heal(Settings.lifesteal);
             getWorld().removeObject(this);
         }
     }

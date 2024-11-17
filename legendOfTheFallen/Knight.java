@@ -19,11 +19,12 @@ public class Knight extends Actor
     private double hp = Settings.knightMaxHp;
     private HpBar knightHpBar = new HpBar();
     
-    private double weaponMult = 1;
+
     
     private SimpleTimer dashTimer = new SimpleTimer();
     private SimpleTimer atkTimer = new SimpleTimer();
     private SimpleTimer healTimer = new SimpleTimer();
+    private SimpleTimer regenTimer = new SimpleTimer();
     
     private boolean isAlive = true;
     
@@ -38,12 +39,14 @@ public class Knight extends Actor
             else{
                 setImage(Settings.knightFrame1);
             }
+            interactArtifact();
             drawHp();
             createAtk();
             move();
             applyGravity();
             checkCollisions();
             drinkPotion();
+            regen();
             checkDed();
         }
     }
@@ -56,6 +59,7 @@ public class Knight extends Actor
             
         }
     }
+    
     public void move()
     {
         if (Greenfoot.isKeyDown("A") || (Greenfoot.isKeyDown("left"))) {
@@ -124,6 +128,7 @@ public class Knight extends Actor
         StonePlatform platform = (StonePlatform) getOneIntersectingObject(StonePlatform.class);
         if (platform != null){
             if ((knightBottomY <= platform.getTopY()) && gravity >= 0){
+                System.out.println(jumps);
                 return true;
             }
         }
@@ -157,8 +162,8 @@ public class Knight extends Actor
     
     public void createAtk(){
         MouseInfo mouse = Greenfoot.getMouseInfo();
-        if ((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("J")) && atkTimer.millisElapsed() >= Settings.baseAtkCd){
-            Attack attack = new Attack(weaponMult);
+        if ((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("J")) && atkTimer.millisElapsed() >= Settings.baseAtkCD){
+            Attack attack = new Attack(Settings.knightAtkMult);
             getWorld().addObject(attack, getX() + (50 * isFacingRight), getY());
             atkTimer.mark();
         }
@@ -180,6 +185,7 @@ public class Knight extends Actor
     public void drawHp(){
         getWorld().addObject(knightHpBar, 0, 0);
         knightHpBar.setSize(hp);
+        knightHpBar.setMaxSize(Settings.knightMaxHp);
         knightHpBar.setPosX(getX());
         knightHpBar.setPosY(knightTopY);
     }
@@ -195,4 +201,27 @@ public class Knight extends Actor
         }
         
     }
+    
+    public void heal(int healAmount){
+        hp += healAmount;
+        if (hp > Settings.knightMaxHp){
+                hp = Settings.knightMaxHp;
+        }
+    }
+    
+    public void regen(){
+        if (regenTimer.millisElapsed() >= 1000 && getWorld().getObjects(Enemy.class).size() != 0) {
+            hp += Settings.regen;
+            regenTimer.mark();
+        }
+    }
+    
+    public void interactArtifact(){
+        Artifact artifact = (Artifact) getOneIntersectingObject(Artifact.class);
+        if (Greenfoot.isKeyDown("E") && artifact != null){
+            artifact.getArtifact();
+        }
+    }
+    
+    
 }
