@@ -9,6 +9,7 @@ public class Attack extends Actor
 {
     private SimpleTimer timer = new SimpleTimer();
     private double atk = Settings.baseAtk;
+    private boolean isGone = false;
     public Attack(double mult){
         atk *= mult;
         scaleImage();
@@ -20,7 +21,12 @@ public class Attack extends Actor
     public void act()
     {
         attackEnemy();
+        attackChest();
         if (timer.millisElapsed() >= Settings.atkTime){
+            isGone = true;
+        }
+        
+        if (isGone){
             getWorld().removeObject(this);
         }
     }
@@ -37,7 +43,15 @@ public class Attack extends Actor
             //lifesteal
             Knight knight = getWorld().getObjects(Knight.class).get(0);
             knight.heal(Settings.lifesteal);
-            getWorld().removeObject(this);
+            isGone = true;
+        }
+    }
+    
+    public void attackChest(){
+        Chest chest = (Chest) getOneIntersectingObject(Chest.class);
+        if (chest != null){
+            chest.destroy();
+            isGone = true;
         }
     }
     
@@ -46,6 +60,6 @@ public class Attack extends Actor
     }
 
     public void scaleImage(){
-        getImage().scale(20, 50);
+        getImage().scale(30, 50);
     }
 }

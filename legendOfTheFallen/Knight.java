@@ -128,7 +128,6 @@ public class Knight extends Actor
         StonePlatform platform = (StonePlatform) getOneIntersectingObject(StonePlatform.class);
         if (platform != null){
             if ((knightBottomY <= platform.getTopY()) && gravity >= 0){
-                System.out.println(jumps);
                 return true;
             }
         }
@@ -177,8 +176,9 @@ public class Knight extends Actor
         if (hp <= 0){
             setImage(new GreenfootImage("Game Over", 200, Color.RED, new Color(0,0,0,0 )));
             setLocation(Settings.worldWidth/2, Settings.worldHeight/2);
-            
+
             getWorld().removeObject(knightHpBar);
+            isAlive = false;
         }
     }
     

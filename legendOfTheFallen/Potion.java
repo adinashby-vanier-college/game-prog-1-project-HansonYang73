@@ -10,7 +10,7 @@ public class Potion extends Actor
     static int amount = 3;
   
     public Potion(){
-        getImage().scale(Settings.potionWidth/10, Settings.potionWidth/10);
+        getImage().scale(Settings.potionWidth, Settings.potionWidth);
     }
     
     public void act(){

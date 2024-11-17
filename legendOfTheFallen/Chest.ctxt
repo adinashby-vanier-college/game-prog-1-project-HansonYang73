@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Chest
+comment0.text=\r\n\ \r\n
+comment1.params=
+comment1.target=Chest()
+comment2.params=
+comment2.target=void\ destroy()
+comment3.params=
+comment3.target=void\ randomArtifact()
+numComments=4

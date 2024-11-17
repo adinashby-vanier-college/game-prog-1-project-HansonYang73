@@ -40,5 +40,25 @@ public class World1 extends World
         Werewolf werewolf = new Werewolf();
         addObject(werewolf,777,263);
         removeObject(zombie);
+        Werewolf werewolf2 = new Werewolf();
+        addObject(werewolf2,921,210);
+        Werewolf werewolf3 = new Werewolf();
+        addObject(werewolf3,46,165);
+        Zombie zombie2 = new Zombie();
+        addObject(zombie2,865,337);
+        Zombie zombie3 = new Zombie();
+        addObject(zombie3,678,240);
+        IronChest ironChest = new IronChest();
+        addObject(ironChest,236,281);
+        IronChest ironChest2 = new IronChest();
+        addObject(ironChest2,153,282);
+        IronChest ironChest3 = new IronChest();
+        addObject(ironChest3,79,287);
+        IronChest ironChest4 = new IronChest();
+        addObject(ironChest4,232,378);
+        IronChest ironChest5 = new IronChest();
+        addObject(ironChest5,139,372);
+        IronChest ironChest6 = new IronChest();
+        addObject(ironChest6,47,371);
     }
 }

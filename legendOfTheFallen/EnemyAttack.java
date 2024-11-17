@@ -32,6 +32,6 @@ public class EnemyAttack extends Actor
     }
     
     public void scaleImage(){
-        getImage().scale(20, 15);
+        getImage().scale(30, 15);
     }
 }

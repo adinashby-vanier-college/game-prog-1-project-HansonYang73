@@ -63,7 +63,7 @@ public class Enemy extends Actor
         //Creates a parry first and if the knight didnt parry the attack, it will spawn the actual attack
         if (atkTimer.millisElapsed() >= Settings.baseEnemyAtkCD ){
             Parry attack = new Parry(this);
-            getWorld().addObject(attack, getX() + (30 * isFacingRight), getY());
+            getWorld().addObject(attack, getX() + (40 * isFacingRight), getY());
             atkTimer.mark();   
         }
     }
