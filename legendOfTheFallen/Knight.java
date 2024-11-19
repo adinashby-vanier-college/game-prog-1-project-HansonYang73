@@ -2,14 +2,13 @@ import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
 
-/**
- * 
- */
 public class Knight extends Actor
 {
     private double gravity = Settings.gravity;
     private GifImage knightGif =  Settings.knightGif;
+    private boolean isAttacking = false;
     private int isFacingRight = 1;
+    private int walking = 1;
     
     private long dashCD = Settings.dashCD;
     private int dashDist = Settings.dashDist;
@@ -33,11 +32,16 @@ public class Knight extends Actor
         knightBottomY = getY() + Settings.knightHeight / 2;
         knightTopY = getY() - Settings.knightHeight / 2;
         if (isAlive){
-            if (isMoving()){
+            if (isMoving() || isAttacking){
                 setImage(knightGif.getCurrentImage());
             }
             else{
-                setImage(Settings.knightFrame1);
+                setImage(knightGif.getImages().get(0));
+            }
+            if (atkTimer.millisElapsed() >= 390 && walking == 0){
+                changeWalkGif();
+                walking = 1;
+                isAttacking = false;
             }
             interactArtifact();
             drawHp();
@@ -162,6 +166,8 @@ public class Knight extends Actor
     public void createAtk(){
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if ((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("J")) && atkTimer.millisElapsed() >= Settings.baseAtkCD){
+            isAttacking = true;
+            changeAttackGif();
             Attack attack = new Attack(Settings.knightAtkMult);
             getWorld().addObject(attack, getX() + (50 * isFacingRight), getY());
             atkTimer.mark();
@@ -223,5 +229,22 @@ public class Knight extends Actor
         }
     }
     
+    public void changeAttackGif(){
+        int faceBefore = isFacingRight;
+        isFacingRight = 1;
+        knightGif = new  GifImage("knight_attacking.gif");
+        if (faceBefore == -1){
+            faceLeft();
+        }
+        walking = 0;
+    }
     
+    public void changeWalkGif(){
+        int faceBefore = isFacingRight;
+        isFacingRight = 1;
+        knightGif = new GifImage("knight_walking_right.gif");
+        if (faceBefore == -1){
+            faceLeft();
+        }
+    }
 }

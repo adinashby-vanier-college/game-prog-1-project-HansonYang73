@@ -24,7 +24,7 @@ public class Settings
     static int baseEnemyAtkCD = 2000; // in millisecond
     
     // Knight Setting
-    static GifImage knightGif =  new  GifImage("knight_walking.gif");
+    static GifImage knightGif =  new  GifImage("knight_walking_right.gif");
     static GreenfootImage knightFrame1 = knightGif.getImages().get(0);
     static int knightWidth = knightFrame1.getWidth();
     static int knightHeight = knightFrame1.getHeight();

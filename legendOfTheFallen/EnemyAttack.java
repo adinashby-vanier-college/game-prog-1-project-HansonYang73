@@ -9,7 +9,7 @@ public class EnemyAttack extends Actor
 {
     private SimpleTimer timer = new SimpleTimer();
     public double atk;
-    
+    public boolean isGone = false;
     public EnemyAttack(double enemyAtk){
         atk = enemyAtk;
         scaleImage();
@@ -19,6 +19,10 @@ public class EnemyAttack extends Actor
     {
         attackKnight();
         if (timer.millisElapsed() >= Settings.enemyAtkTime){
+            isGone = true;
+        }
+        
+        if (isGone){
             getWorld().removeObject(this);
         }
     }
@@ -27,7 +31,7 @@ public class EnemyAttack extends Actor
         Knight knight = (Knight) getOneIntersectingObject(Knight.class);
         if (knight != null){
             knight.atkToKnight(atk);
-            getWorld().removeObject(this);
+            isGone = true;
         }
     }
     

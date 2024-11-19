@@ -13,7 +13,7 @@ public class World1 extends World
      */
     public World1()
     {
-        super(Settings.worldWidth, Settings.worldHeight, 1);
+        super(1000, 400, 1);
         prepare();
     }
 
@@ -60,5 +60,8 @@ public class World1 extends World
         addObject(ironChest5,139,372);
         IronChest ironChest6 = new IronChest();
         addObject(ironChest6,47,371);
+        removeObject(werewolf3);
+        removeObject(zombie3);
+        removeObject(werewolf);
     }
 }
