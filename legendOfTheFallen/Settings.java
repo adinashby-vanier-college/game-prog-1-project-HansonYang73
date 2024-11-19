@@ -63,9 +63,30 @@ public class Settings
     static int potionHeight = potionImage.getHeight();
     static int healAmount = 50;
     static int healCd = 1000;
+    static int potionAmount = 3;
     
     // Artifact Settings
     static int lifesteal = 0;
     static int regen = 0;
     
+    static void reset(){
+        baseAtkCD = 500; // in millisecond
+        
+        // Knight Setting
+        knightGif =  new  GifImage("knight_walking_right.gif");
+        knightFrame1 = knightGif.getImages().get(0);
+        baseAtk = 20;
+        knightAtkMult = 1;
+        jumps = 1;
+        knightMaxHp = 100;
+        
+        // Potion Setting
+        healAmount = 50;
+        potionAmount = 3;
+        
+        // Artifact Settings
+        lifesteal = 0;
+        regen = 0;
+    }
 }
+

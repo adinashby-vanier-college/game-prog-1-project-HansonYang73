@@ -28,7 +28,6 @@ public class Chest extends Actor
      public void destroy(){
         randomArtifact();
         for (int i = 0; i < artifacts.size(); i++){
-            System.out.println(artifacts.get(i));
             getWorld().addObject(artifacts.get(i), getX()+(70*i), getY() + 5);  
         }
         getWorld().removeObject(this);

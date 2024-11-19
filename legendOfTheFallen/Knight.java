@@ -53,6 +53,7 @@ public class Knight extends Actor
             regen();
             checkDed();
         }
+        checkReset();
     }
 
     public void applyGravity(){
@@ -197,8 +198,8 @@ public class Knight extends Actor
     }
     
     public void drinkPotion(){
-        if (Potion.amount > 0 && hp < Settings.knightMaxHp && healTimer.millisElapsed() >= Settings.healCd && Greenfoot.isKeyDown("F")){
-            Potion.amount--;
+        if (Settings.potionAmount > 0 && hp < Settings.knightMaxHp && healTimer.millisElapsed() >= Settings.healCd && Greenfoot.isKeyDown("F")){
+            Settings.potionAmount--;
             hp += Settings.healAmount;
             if (hp > Settings.knightMaxHp){
                 hp = Settings.knightMaxHp;
@@ -245,6 +246,13 @@ public class Knight extends Actor
         knightGif = new GifImage("knight_walking_right.gif");
         if (faceBefore == -1){
             faceLeft();
+        }
+    }
+    
+    public void checkReset(){
+        if (Greenfoot.isKeyDown("R")){
+            Settings.reset();
+            hp = Settings.knightMaxHp;
         }
     }
 }

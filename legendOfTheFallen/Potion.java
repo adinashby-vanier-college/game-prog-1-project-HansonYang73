@@ -7,7 +7,7 @@ import greenfoot.*;
  */
 public class Potion extends Actor
 {
-    static int amount = 3;
+    private int amount = Settings.potionAmount;
   
     public Potion(){
         getImage().scale(Settings.potionWidth, Settings.potionWidth);
