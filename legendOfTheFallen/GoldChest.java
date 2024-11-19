@@ -13,15 +13,18 @@ public class GoldChest extends Chest
     }
     
     public void randomArtifact(){
-        if (rarity >= 0 && rarity <= 19) { //20%
-            rarityArtifacts = legendArtifacts;
-        } 
-        else if (rarity >= 20 && rarity <= 59) { //40%
-            rarityArtifacts = mythArtifacts;
-        } 
-        else if (rarity >= 60 && rarity <= 99) { //40%
-            rarityArtifacts = commonArtifacts;
+        for (int i = 0; i < 2; i++){
+            int rarity = (int) (Math.random() * 100);
+            if (rarity >= 0 && rarity <= 19) { //20%
+                rarityArtifacts = legendArtifacts;
+            } 
+            else if (rarity >= 20 && rarity <= 59) { //40%
+                rarityArtifacts = mythArtifacts;
+            } 
+            else if (rarity >= 60 && rarity <= 99) { //40%
+                rarityArtifacts = commonArtifacts;
+            }
+            artifacts.add(rarityArtifacts.get((int) (Math.random() * rarityArtifacts.size())));
         }
-        artifact = rarityArtifacts.get((int) (Math.random() * rarityArtifacts.size()));
     }
 }

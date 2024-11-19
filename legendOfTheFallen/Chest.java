@@ -11,26 +11,25 @@ public class Chest extends Actor
     protected ArrayList<Artifact> mythArtifacts = new ArrayList<>();
     protected ArrayList<Artifact> commonArtifacts = new ArrayList<>();
     protected ArrayList<Artifact> rarityArtifacts;
-    protected Artifact artifact;
-    protected int rarity;
+    protected ArrayList<Artifact> artifacts = new ArrayList<>();
     public Chest(){
         legendArtifacts.add(new LegendarySword());
+        legendArtifacts.add(new ElixirStrength());
         
         mythArtifacts.add(new AncientPizza());
         mythArtifacts.add(new BloodTalisman());
-        mythArtifacts.add(new ElixirStrength());
         mythArtifacts.add(new LeftVampCrest());
         mythArtifacts.add(new RightVampCrest());
         mythArtifacts.add(new LeftVampCrest());
         
         commonArtifacts.add(new Potion2());
-        
-        rarity = (int) (Math.random() * 100); // 0 = legend, 1-2 = myth, 3-9 = common
     }
     
-    public void destroy(){
+     public void destroy(){
         randomArtifact();
-        getWorld().addObject(artifact, getX(), getY());
+        for (int i = 0; i < artifacts.size(); i++){
+            getWorld().addObject(artifacts.get(i), getX()+(70*i), getY());  
+        }
         getWorld().removeObject(this);
     }
     

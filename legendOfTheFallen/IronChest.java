@@ -13,6 +13,7 @@ public class IronChest extends Chest
     }
     
     public void randomArtifact(){
+        int rarity = (int) (Math.random() * 100);
         if (rarity >= 0 && rarity <= 4) { //5%
             rarityArtifacts = legendArtifacts;
         } 
@@ -22,6 +23,6 @@ public class IronChest extends Chest
         else if (rarity >= 25 && rarity <= 99) { //75%
             rarityArtifacts = commonArtifacts;
         }
-        artifact = rarityArtifacts.get((int) (Math.random() * rarityArtifacts.size()));
+        artifacts.add(rarityArtifacts.get((int) (Math.random() * rarityArtifacts.size())));
     }
 }

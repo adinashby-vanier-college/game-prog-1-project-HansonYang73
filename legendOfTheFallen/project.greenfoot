@@ -2,6 +2,7 @@
 class.AncientPizza.image=ancient_pizza.png
 class.Attack.image=AttackTest.jpg
 class.BloodTalisman.image=blood_talisman.png
+class.DiamondChest.image=diamond_chest.png
 class.Dizzy.image=dizzy.png
 class.ElixirStrength.image=elixir_strength.png
 class.EnemyAttack.image=AttackTest.jpg
@@ -10,7 +11,7 @@ class.HpBar.image=Attack.png
 class.IronChest.image=iron_chest.png
 class.Knight.image=knight_walking_right.gif
 class.LeftVampCrest.image=left_vampire_crest.png
-class.LegendarySword.image=Attack.png
+class.LegendarySword.image=AttackTest.jpg
 class.Parry.image=AttackTest.jpg
 class.Potion.image=potion.png
 class.Potion2.image=potion.png

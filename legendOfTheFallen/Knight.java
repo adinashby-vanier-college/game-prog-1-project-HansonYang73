@@ -131,7 +131,7 @@ public class Knight extends Actor
     public boolean collidePlatform(){
         StonePlatform platform = (StonePlatform) getOneIntersectingObject(StonePlatform.class);
         if (platform != null){
-            if ((knightBottomY <= platform.getTopY()) && gravity >= 0){
+            if ((knightBottomY-1 <= platform.getTopY())){
                 return true;
             }
         }
