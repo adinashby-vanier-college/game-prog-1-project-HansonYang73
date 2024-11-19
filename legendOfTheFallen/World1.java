@@ -68,5 +68,11 @@ public class World1 extends World
         removeObject(ironChest4);
         DiamondChest diamondChest2 = new DiamondChest();
         addObject(diamondChest2,223,368);
+        Werewolf werewolf4 = new Werewolf();
+        addObject(werewolf4,966,326);
+        Werewolf werewolf5 = new Werewolf();
+        addObject(werewolf5,824,252);
+        Zombie zombie4 = new Zombie();
+        addObject(zombie4,745,348);
     }
 }

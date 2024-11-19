@@ -37,12 +37,12 @@ public class Enemy extends Actor
         Knight knight = getWorld().getObjects(Knight.class).get(0);
         double distFromKnight = Math.abs(knight.getX() - getX());
         
-        if (distFromKnight <= Settings.aggroDist && !isTouching(Knight.class)){ 
-            if (knight.getX() > getX()){
+        if (distFromKnight <= Settings.aggroDist){ 
+            if (knight.getX() > getX() && knight.getX() - getX() > Settings.atkDist){
                 move(speed);
                 faceRight();
             }
-            else if (knight.getX() < getX()){
+            else if (knight.getX() < getX() && getX() - knight.getX() > Settings.atkDist){
                 move(-speed);
                 faceLeft();
             }

@@ -253,6 +253,7 @@ public class Knight extends Actor
         if (Greenfoot.isKeyDown("R")){
             Settings.reset();
             hp = Settings.knightMaxHp;
+            isAlive = true;
         }
     }
 }
