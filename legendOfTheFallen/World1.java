@@ -13,7 +13,7 @@ public class World1 extends World
      */
     public World1()
     {
-        super(1000, 400, 1);
+        super(Settings.worldWidth, Settings.worldHeight, 1);
         prepare();
     }
 

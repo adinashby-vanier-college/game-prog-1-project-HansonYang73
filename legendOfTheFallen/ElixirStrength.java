@@ -8,6 +8,7 @@ import greenfoot.*;
 public class ElixirStrength extends Artifact
 {
     public void getArtifact(){
+        scaleImage();
         Settings.knightAtkMult *= 1.5;
         getWorld().removeObject(this);
     }
