@@ -2,5 +2,7 @@
 comment0.target=LegendarySword
 comment0.text=\r\n\ \r\n
 comment1.params=
-comment1.target=void\ getArtifact()
-numComments=2
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ getArtifact()
+numComments=3
