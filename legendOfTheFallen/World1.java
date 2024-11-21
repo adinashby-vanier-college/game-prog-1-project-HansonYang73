@@ -5,28 +5,29 @@ import greenfoot.*;
 /**
  * 
  */
-public class World1 extends World
+public class World1 extends TemplateWorld
 {
-
+    private Knight knight;
     /**
      * Constructor for objects of class World1.
      */
-    public World1()
+    public World1(Knight knight)
     {
-        super(Settings.worldWidth, Settings.worldHeight, 1);
+        super();
+        this.knight = knight;
         prepare();
     }
-
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
+    
+    public void act(){
+        if (canGoNextWorld(knight)){
+            goNextWorld(new TutorialWorld());
+        }
+    }
     private void prepare()
     {
-        StonePlatform stonePlatform =  new  StonePlatform();
+        StonePlatform stonePlatform =  new  StonePlatform(20, 100);
         addObject(stonePlatform, 285, 255);
         stonePlatform.setLocation(163, 257);
-        Knight knight =  new  Knight();
         addObject(knight, 460, 261);
         stonePlatform.setLocation(167, 320);
 

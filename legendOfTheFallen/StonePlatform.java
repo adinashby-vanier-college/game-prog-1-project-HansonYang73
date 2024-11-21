@@ -8,16 +8,20 @@ import greenfoot.*;
 public class StonePlatform extends Actor
 {
     public GreenfootImage platform = new GreenfootImage("Stone1.jpg");
-    /**
-     * Act - do whatever the StonePlatform wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
+    private int width;
+    private int height;
+    public StonePlatform(int width, int height){
+        this.width = width;
+        this.height = height;
+        scale();
     }
 
+    public void scale(){
+        getImage().scale(width, height);
+    }
     
     public double getTopY(){
-        return getY() - platform.getHeight() / 2;
+        return getY() - height / 2;
     }
     
 }
