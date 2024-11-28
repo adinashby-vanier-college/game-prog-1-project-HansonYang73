@@ -8,7 +8,6 @@ import greenfoot.*;
 public class TutorialWorld extends TemplateWorld
 {
     private Chest ironChest2;
-    private Knight knight;
     /**
      * Constructor for objects of class TutorialWorld.
      */
@@ -37,11 +36,9 @@ public class TutorialWorld extends TemplateWorld
 
         knight = new Knight();
         addObject(knight,149,352);
-        Potion potion = new Potion();
-        addObject(potion,62,24);
-        potion.setLocation(21,36);
-        PotionText potionText = new PotionText();
-        addObject(potionText,54,40);
+        
+        showPotion();
+        showCoin();
 
         DiamondChest diamondChest = new DiamondChest();
         addObject(diamondChest,595,29);

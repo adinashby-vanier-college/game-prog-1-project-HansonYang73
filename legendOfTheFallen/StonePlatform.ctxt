@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=StonePlatform
 comment0.text=\r\n\ \r\n
-comment1.params=width\ height
-comment1.target=StonePlatform(int,\ int)
-comment2.params=
-comment2.target=void\ scale()
+comment1.params=
+comment1.target=StonePlatform()
+comment2.params=width\ height
+comment2.target=StonePlatform(int,\ int)
 comment3.params=
-comment3.target=double\ getTopY()
-numComments=4
+comment3.target=void\ scale()
+comment4.params=
+comment4.target=double\ getTopY()
+numComments=5

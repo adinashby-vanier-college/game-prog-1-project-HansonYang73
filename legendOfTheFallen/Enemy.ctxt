@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Enemy
 comment0.text=\r\n\ \r\n
-comment1.params=enemyHp\ enemyMaxHp\ enemySpeed\ enemyAtk
-comment1.target=Enemy(double,\ double,\ int,\ double)
+comment1.params=enemyHp\ enemyMaxHp\ enemySpeed\ enemyAtk\ enemyCoinAmt
+comment1.target=Enemy(double,\ double,\ int,\ double,\ int)
 comment10.params=
 comment10.target=void\ drawHp()
 comment11.params=

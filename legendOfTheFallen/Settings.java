@@ -28,12 +28,14 @@ public class Settings
     static GreenfootImage knightFrame1 = knightGif.getImages().get(0);
     static int knightWidth = 70;
     static int knightHeight = 80;
+    static int knightSpeed = 15;
     static double baseAtk = 20;
     static double knightAtkMult = 1;
     static long dashCD = 1000; // in milisecond
     static int dashDist = 100;
     static int jumps = 1;
     static double knightMaxHp = 100;
+    static int coins = 0;
     
     // Enemy Settings
     static double aggroDist = 400; // in cell-size
@@ -47,6 +49,7 @@ public class Settings
     static int zombieSpeed = 2;
     static int zombieMaxHp = 100;
     static double zombieHP = 100;
+    static int zombieCoinAmt = 5;
     
     // Werewolf Settings
     static GreenfootImage werewolfImage = new GreenfootImage("werewolf.png");
@@ -56,6 +59,7 @@ public class Settings
     static int werewolfSpeed = 1;
     static int werewolfMaxHp = 140;
     static double werewolfHP = 140;
+    static int werewolfCoinAmt = 10;
     
     // Potion Setting
     static GreenfootImage potionImage = new GreenfootImage("potion.png");
@@ -79,6 +83,7 @@ public class Settings
         knightAtkMult = 1;
         jumps = 1;
         knightMaxHp = 100;
+        coins = 0;
         
         // Potion Setting
         healAmount = 50;
@@ -87,6 +92,8 @@ public class Settings
         // Artifact Settings
         lifesteal = 0;
         regen = 0;
+        
+        
     }
 }
 

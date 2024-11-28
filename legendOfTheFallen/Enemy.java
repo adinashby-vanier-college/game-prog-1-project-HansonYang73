@@ -16,11 +16,12 @@ public class Enemy extends Actor
     protected double enemyTopY;
     protected int speed;
     protected double atk;
+    protected int coinAmt;
     
     protected SimpleTimer stunTimer;
     protected boolean isStun;
     
-    public Enemy(double enemyHp, double enemyMaxHp, int enemySpeed, double enemyAtk){
+    public Enemy(double enemyHp, double enemyMaxHp, int enemySpeed, double enemyAtk, int enemyCoinAmt){
         gravity = Settings.gravity;
         isFacingRight = -1;
         hp = enemyHp;
@@ -28,6 +29,7 @@ public class Enemy extends Actor
         enemyHpBar = new HpBar();
         speed = enemySpeed;
         atk = enemyAtk;
+        coinAmt = enemyCoinAmt;
         
         stunTimer = new SimpleTimer();
         isStun = false;
@@ -97,6 +99,8 @@ public class Enemy extends Actor
     
     public void checkDed(){
         if (hp <= 0){
+            Settings.coins += this.coinAmt;
+            
             Actor dizzy = getOneIntersectingObject(Dizzy.class);
             for (Actor parry: getWorld().getObjects(Parry.class)){
                 getWorld().removeObject(parry);

@@ -68,12 +68,12 @@ public class Knight extends Actor
     public void move()
     {
         if (Greenfoot.isKeyDown("A") || (Greenfoot.isKeyDown("left"))) {
-            move(-5);
+            move(-Settings.knightSpeed);
             faceLeft();
         }
         
         if (Greenfoot.isKeyDown("D") || (Greenfoot.isKeyDown("right"))) {
-            move(5);
+            move(Settings.knightSpeed);
             faceRight();
         }
         
