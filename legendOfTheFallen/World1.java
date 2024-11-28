@@ -40,7 +40,7 @@ public class World1 extends TemplateWorld
 
         stonePlatform.setLocation(806,309);
         zombie.setLocation(644,362);
-        IronChest ironChest = new IronChest();
-        addObject(ironChest,817,271);
+        
+        addChest(817, 271);
     }
 }

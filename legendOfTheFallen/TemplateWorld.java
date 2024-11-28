@@ -44,6 +44,18 @@ public class TemplateWorld extends World
         addObject(potionText,60,45);
     }
     
+    public void addChest(int x, int y){
+        int rand = (int) (Math.random() * 100);
+        if (rand <= 14){
+            GoldChest goldChest = new GoldChest();
+            addObject(goldChest,x,y);
+        }
+        else{
+            IronChest ironChest = new IronChest();
+            addObject(ironChest,x,y);
+        }
+    }
+    
     public void goNextWorld(World nextWorld){
         World thisWorld = this;
         Greenfoot.setWorld(nextWorld);
