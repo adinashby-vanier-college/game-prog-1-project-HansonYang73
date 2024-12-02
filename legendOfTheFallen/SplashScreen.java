@@ -19,7 +19,7 @@ public class SplashScreen extends TemplateWorld
     
     public void act(){
         if (threeSec.millisElapsed() >= 3000){
-            goNextWorld(new TutorialWorld());
+            goNextWorld(new TitlePage());
         }
     }
 }

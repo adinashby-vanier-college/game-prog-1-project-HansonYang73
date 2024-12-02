@@ -63,6 +63,17 @@ public class Settings
     static double werewolfHP = 140;
     static int werewolfCoinAmt = 10;
     
+    // demon Settings
+    static GifImage demonGif = new GifImage("FinalDemonBoss.gif");
+    static GreenfootImage demonImage = demonGif.getImages().get(0);
+    static int demonWidth = demonImage.getWidth();
+    static int demonHeight = demonImage.getHeight();
+    static double demonAtk = 45;
+    static int demonSpeed = 1;
+    static int demonMaxHp = 1200;
+    static double demonHP = 1200;
+    static int demonCoinAmt = 10;
+    
     // Potion Setting
     static GreenfootImage potionImage = new GreenfootImage("potion.png");
     static int potionWidth = potionImage.getWidth();
@@ -96,7 +107,7 @@ public class Settings
         lifesteal = 0;
         regen = 0;
         
-        Greenfoot.setWorld(new TutorialWorld());
+        Greenfoot.setWorld(new TitlePage());
     }
 }
 

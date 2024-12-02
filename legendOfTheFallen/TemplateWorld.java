@@ -15,6 +15,10 @@ public class TemplateWorld extends World
     {
         super(Settings.worldWidth, Settings.worldHeight, 1);
     }
+    public TemplateWorld(int width, int height)
+    {
+        super(width, height, 1);
+    }
     
     public void showTextWithBigBlackFont(String message, int x, int y)
     {

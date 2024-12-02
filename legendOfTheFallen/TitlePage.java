@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -6,7 +5,7 @@ import greenfoot.*;
 /**
  * 
  */
-public class TitlePage extends World
+public class TitlePage extends TemplateWorld
 {
 
     /**
@@ -14,6 +13,16 @@ public class TitlePage extends World
      */
     public TitlePage()
     {
-        super(440, 400, 1);
+        super(443, 443);
+        prepare();
+    }
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        PlayButton playButton = new PlayButton();
+        addObject(playButton,221,309);
     }
 }
