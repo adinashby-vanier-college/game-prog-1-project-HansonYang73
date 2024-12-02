@@ -2,5 +2,5 @@
 comment0.target=PotionText
 comment0.text=\r\n\ \r\n
 comment1.params=
-comment1.target=void\ act()
+comment1.target=PotionText()
 numComments=2

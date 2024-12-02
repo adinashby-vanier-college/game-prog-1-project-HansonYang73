@@ -28,7 +28,6 @@ public class TutorialWorld extends TemplateWorld
     public void act(){
         if (canGoNextWorld(knight)){
             goNextWorld(new World1(knight));
-            //goNextWorld(new Shop(knight));
         }
     }
     

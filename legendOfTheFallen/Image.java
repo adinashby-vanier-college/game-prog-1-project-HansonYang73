@@ -24,6 +24,11 @@ public class Image extends Actor
             getWorld().addObject(artifact, getX(), getY());
             artifact.getArtifact();
             Settings.coins -= price;
+            
+            setLocation(getX(), getY()-15);
+            Coin coin = (Coin) getOneIntersectingObject(Coin.class);
+            coin.delete();
+            
             getWorld().removeObject(this);
         }
     }

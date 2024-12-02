@@ -18,12 +18,13 @@ public class Knight extends Actor
     private double hp = Settings.knightMaxHp;
     private HpBar knightHpBar = new HpBar();
     
-
-    
     private SimpleTimer dashTimer = new SimpleTimer();
     private SimpleTimer atkTimer = new SimpleTimer();
     private SimpleTimer healTimer = new SimpleTimer();
     private SimpleTimer regenTimer = new SimpleTimer();
+    
+    private GreenfootSound slashSound = new GreenfootSound("sword_slash.mp3");
+    private GreenfootSound drinkSound = new GreenfootSound("drink_potion.mp3");
     
     private boolean isAlive = true;
     
@@ -167,6 +168,7 @@ public class Knight extends Actor
     public void createAtk(){
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if ((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("J")) && atkTimer.millisElapsed() >= Settings.baseAtkCD){
+            slashSound.play();
             isAttacking = true;
             changeAttackGif();
             Attack attack = new Attack(Settings.knightAtkMult);
@@ -199,6 +201,7 @@ public class Knight extends Actor
     
     public void drinkPotion(){
         if (Settings.potionAmount > 0 && hp < Settings.knightMaxHp && healTimer.millisElapsed() >= Settings.healCd && Greenfoot.isKeyDown("F")){
+            drinkSound.play();
             Settings.potionAmount--;
             hp += Settings.healAmount;
             if (hp > Settings.knightMaxHp){

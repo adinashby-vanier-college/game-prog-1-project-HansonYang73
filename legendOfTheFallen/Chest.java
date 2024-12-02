@@ -12,6 +12,7 @@ public class Chest extends Actor
     protected ArrayList<Artifact> commonArtifacts = new ArrayList<>();
     protected ArrayList<Artifact> rarityArtifacts;
     protected ArrayList<Artifact> artifacts = new ArrayList<>();
+    private GreenfootSound openChestSound = new GreenfootSound("chest_opening.mp3");
     public Chest(){
         legendArtifacts.add(new LegendarySword());
         legendArtifacts.add(new ElixirStrength());
@@ -30,6 +31,7 @@ public class Chest extends Actor
         for (int i = 0; i < artifacts.size(); i++){
             getWorld().addObject(artifacts.get(i), getX()+(70*i), getY() + 5);  
         }
+        openChestSound.play();
         getWorld().removeObject(this);
     }
     
