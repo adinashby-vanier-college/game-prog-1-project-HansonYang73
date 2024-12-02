@@ -20,7 +20,7 @@ public class World2 extends TemplateWorld
     
     public void act(){
         if (canGoNextWorld(knight)){
-            goNextWorld(new TutorialWorld());
+            goNextWorld(new World3(knight));
         }
     }
     
@@ -43,5 +43,7 @@ public class World2 extends TemplateWorld
         addObject(werewolf,955,350);
         Zombie zombie2 = new Zombie();
         addObject(zombie2,443,356);
+
+        addChest(488,185);
     }
 }

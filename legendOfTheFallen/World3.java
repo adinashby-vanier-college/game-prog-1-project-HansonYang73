@@ -11,21 +11,21 @@ public class World3 extends TemplateWorld
     /**
      * Constructor for objects of class World3.
      */
-    public World3()
+    public World3(Knight knight)
     {
         super();
-        //this.knight = knight;
+        this.knight = knight;
         prepare();
     }
     
     public void act(){
-        //if (canGoNextWorld(knight)){
-            //goNextWorld(new TutorialWorld());
-        //}
+        if (canGoNextWorld(knight)){
+            goNextWorld(new TutorialWorld());
+        }
     }
     
     public void prepare(){
-        //addObject(knight, 5, knight.getY()); 
+        addObject(knight, 5, knight.getY()); 
         showPotion();
         showCoin();
         StonePlatform stonePlatform = new StonePlatform();
