@@ -7,16 +7,15 @@ import greenfoot.*;
  */
 public class LegendarySword extends Artifact
 {
-    private GifImage knightGif =  new  GifImage("LegendarySword.gif");
+    private GifImage swordGif =  new  GifImage("LegendarySword.gif");
     
     public void act(){
-        setImage(knightGif.getCurrentImage());
+        setImage(swordGif.getCurrentImage());
     }
     
     public void getArtifact(){
-        scaleImage();
         Settings.baseAtk = 35;
-        Settings.baseAtkCD = 333;
+        Settings.baseAtkCD = 500;
         getWorld().removeObject(this);
     }
 }

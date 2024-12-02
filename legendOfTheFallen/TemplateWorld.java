@@ -8,6 +8,7 @@ import greenfoot.*;
 public class TemplateWorld extends World
 {
     protected Knight knight;
+    static GreenfootSound bgMusic = new GreenfootSound("Dungeon.mp3");
     /**
      * Constructor for objects of class TemplateWorld.
      */
@@ -15,6 +16,7 @@ public class TemplateWorld extends World
     {
         super(Settings.worldWidth, Settings.worldHeight, 1);
     }
+    
     public TemplateWorld(int width, int height)
     {
         super(width, height, 1);
@@ -70,5 +72,13 @@ public class TemplateWorld extends World
             return true;
         }
         return false;
+    }
+    
+    static void start(){
+        bgMusic.playLoop();
+    }
+    
+    static void stop(){
+        bgMusic.stop();
     }
 }

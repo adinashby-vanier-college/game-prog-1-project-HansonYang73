@@ -8,7 +8,7 @@ import greenfoot.*;
 public class Enemy extends Actor
 {
     protected double gravity;
-    protected int isFacingRight;
+    static int isFacingRight;
     protected double hp;
     protected double maxHp;
     protected HpBar enemyHpBar;

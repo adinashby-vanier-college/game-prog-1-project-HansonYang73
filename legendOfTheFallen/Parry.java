@@ -26,7 +26,7 @@ public class Parry extends Actor
     {
         getsParried();
         if (timer.millisElapsed() >= Settings.parryTime){
-            EnemyAttack attack = new EnemyAttack(enemy.atk);
+            EnemyAttack attack = new EnemyAttack(enemy.atk, enemy.isFacingRight);
             getWorld().addObject(attack, getX(), getY());
             isDed = true;
         }

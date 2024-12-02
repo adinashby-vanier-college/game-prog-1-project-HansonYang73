@@ -14,6 +14,7 @@ public class TutorialWorld extends TemplateWorld
     public TutorialWorld()
     {
         super();
+        TemplateWorld.start();
         prepare();
         showTextWithBigBlackFont("These are the 3 tiers of chest: Iron, Gold, Diamond", 300, 80);
         showTextWithBigBlackFont("Use 'A' + 'D' or arrow keys to move", 20, 200);

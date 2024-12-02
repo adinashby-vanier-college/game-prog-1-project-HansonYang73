@@ -10,8 +10,10 @@ public class EnemyAttack extends Actor
     private SimpleTimer timer = new SimpleTimer();
     public double atk;
     public boolean isGone = false;
-    public EnemyAttack(double enemyAtk){
+    private int dir;
+    public EnemyAttack(double enemyAtk, int direction){
         atk = enemyAtk;
+        dir = direction;
         scaleImage();
     }
     
@@ -31,6 +33,7 @@ public class EnemyAttack extends Actor
         Knight knight = (Knight) getOneIntersectingObject(Knight.class);
         if (knight != null){
             knight.atkToKnight(atk);
+            knight.setLocation(knight.getX() + (Settings.knockback * dir), knight.getY());
             isGone = true;
         }
     }

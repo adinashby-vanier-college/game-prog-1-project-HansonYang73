@@ -20,7 +20,7 @@ public class Settings
     static int stunTime = 2000; //in ms
     static int atkTime = 200; // in millisecond
     static int enemyAtkTime = 200; // in millisecond
-    static int baseAtkCD = 500; // in millisecond
+    static int baseAtkCD = 1000; // in millisecond
     static int baseEnemyAtkCD = 2000; // in millisecond
     
     // Knight Setting
@@ -35,11 +35,12 @@ public class Settings
     static int dashDist = 100;
     static int jumps = 1;
     static double knightMaxHp = 100;
-    static int coins = 120;
+    static int coins = 0;
     
     // Enemy Settings
     static double aggroDist = 400; // in cell-size
     static double atkDist = 50; // in cell-size
+    static int knockback = 45;
     
     // Zombie Settings
     static GifImage zombieGif = new GifImage("zombie_walking.gif");

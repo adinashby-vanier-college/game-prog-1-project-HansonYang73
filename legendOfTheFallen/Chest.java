@@ -22,6 +22,7 @@ public class Chest extends Actor
         mythArtifacts.add(new LeftVampCrest());
         mythArtifacts.add(new RightVampCrest());
         mythArtifacts.add(new LeftVampCrest());
+        mythArtifacts.add(new Shield());
         
         commonArtifacts.add(new Potion2());
     }
