@@ -10,6 +10,8 @@ public class Parry extends Actor
     private SimpleTimer timer = new SimpleTimer();
     Enemy enemy;
     private boolean isDed = false;
+    
+    private GreenfootSound parrySound = new GreenfootSound("parry.mp3");
     // can not attack
     // mult dmg by 1.5x
     // speed = 0 (stun)
@@ -36,12 +38,13 @@ public class Parry extends Actor
     public void getsParried(){
         Attack attack = (Attack) getOneIntersectingObject(Attack.class);
         if (attack != null){
+            parrySound.play();
             enemy.stun();
             isDed = true;
         }
     }
 
     public void scaleImage(){
-        getImage().scale(50, 15);
+        getImage().scale(80, 15);
     }
 }

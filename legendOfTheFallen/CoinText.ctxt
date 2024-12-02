@@ -2,5 +2,5 @@
 comment0.target=CoinText
 comment0.text=\r\n\ \r\n
 comment1.params=
-comment1.target=CoinText()
+comment1.target=void\ act()
 numComments=2

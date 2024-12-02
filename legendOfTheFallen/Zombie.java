@@ -10,7 +10,8 @@ public class Zombie extends Enemy
     
     public Zombie(){
         super(Settings.zombieHP, Settings.zombieMaxHp, Settings.zombieSpeed, 
-                Settings.zombieAtk, Settings.zombieCoinAmt, "zombie_walking.gif", "ZombieAttack.gif");
+        Settings.zombieAtk, Settings.zombieCoinAmt, "zombie_walking.gif", 
+        "ZombieAttack.gif", new GreenfootSound("zombie_attack.mp3"));
             
         atkTimer = new SimpleTimer();
     }
@@ -22,6 +23,13 @@ public class Zombie extends Enemy
     {
         enemyBottomY = getY() + Settings.zombieHeight / 2;
         enemyTopY = getY() - Settings.zombieHeight / 2 - 10;
+        
+        if (!isStun){
+            moveToKnight();
+            if (isAtkDist()){
+            createAtk();
+            }
+        }
         
         super.act();
     }

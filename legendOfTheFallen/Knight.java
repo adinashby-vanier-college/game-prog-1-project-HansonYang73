@@ -25,6 +25,9 @@ public class Knight extends Actor
     
     private GreenfootSound slashSound = new GreenfootSound("sword_slash.mp3");
     private GreenfootSound drinkSound = new GreenfootSound("drink_potion.mp3");
+    private GreenfootSound pickupSound = new GreenfootSound("pick_up.mp3");
+    private GreenfootSound jumpSound = new GreenfootSound("jump.mp3");
+    private GreenfootSound dashSound = new GreenfootSound("dash1.mp3");
     
     private boolean isAlive = true;
     
@@ -81,8 +84,9 @@ public class Knight extends Actor
         jumpDown();
         
         if (Greenfoot.isKeyDown("space") && jumps == 1){
+            jumpSound.play();
             setLocation(getX(), getY() - 5);
-            gravity = -7.0;
+            gravity = -8.0;
             jumps = 0;
         }
         dash();
@@ -97,11 +101,13 @@ public class Knight extends Actor
     
     public void dash(){
         if (Greenfoot.isKeyDown("shift") && Greenfoot.isKeyDown("D") && dashTimer.millisElapsed() >= dashCD){
+            dashSound.play();
             move(dashDist);
             dashTimer.mark();
         }
         
         if (Greenfoot.isKeyDown("shift") && Greenfoot.isKeyDown("A") && dashTimer.millisElapsed() >= dashCD){
+            dashSound.play();
             move(-dashDist);
             dashTimer.mark();
         }
@@ -230,6 +236,7 @@ public class Knight extends Actor
         Artifact artifact = (Artifact) getOneIntersectingObject(Artifact.class);
         if (Greenfoot.isKeyDown("E") && artifact != null){
             artifact.getArtifact();
+            pickupSound.play();
         }
     }
     

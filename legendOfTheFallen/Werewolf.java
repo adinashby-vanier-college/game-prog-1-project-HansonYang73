@@ -10,7 +10,8 @@ public class Werewolf extends Enemy
     
     public Werewolf(){
         super(Settings.werewolfHP, Settings.werewolfMaxHp, Settings.werewolfSpeed, 
-                Settings.werewolfAtk, Settings.werewolfCoinAmt, "WolfWalking.gif", "WolfAttack.gif");
+        Settings.werewolfAtk, Settings.werewolfCoinAmt, "WolfWalking.gif", 
+        "WolfAttack.gif", new GreenfootSound("wolf_attack.mp3"));
         atkTimer = new SimpleTimer();
     }
     
@@ -18,6 +19,13 @@ public class Werewolf extends Enemy
     {
         enemyBottomY = getY() + Settings.werewolfHeight / 2;
         enemyTopY = getY() - Settings.werewolfHeight / 2 - 10;
+        
+        if (!isStun){
+            moveToKnight();
+            if (isAtkDist()){
+            createAtk();
+            }
+        }
         
         super.act();
     }

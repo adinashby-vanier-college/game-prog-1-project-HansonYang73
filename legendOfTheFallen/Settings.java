@@ -9,14 +9,14 @@ public class Settings
 {
     // gravity
     static double gravity = 2;
-    static double ySpeed = 0.2;
+    static double ySpeed = 0.3;
     
     // World Settings
     static int worldWidth = 1000;
     static int worldHeight = 400;
     
     // Attack & Parry Settings
-    static int parryTime = 200; // in millisecond
+    static int parryTime = 300; // in millisecond
     static int stunTime = 2000; //in ms
     static int atkTime = 200; // in millisecond
     static int enemyAtkTime = 200; // in millisecond
@@ -35,11 +35,11 @@ public class Settings
     static int dashDist = 100;
     static int jumps = 1;
     static double knightMaxHp = 100;
-    static int coins = 0;
+    static int coins = 120;
     
     // Enemy Settings
     static double aggroDist = 400; // in cell-size
-    static double atkDist = 70; // in cell-size
+    static double atkDist = 50; // in cell-size
     
     // Zombie Settings
     static GifImage zombieGif = new GifImage("zombie_walking.gif");

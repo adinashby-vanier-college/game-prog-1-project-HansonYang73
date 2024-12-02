@@ -31,7 +31,11 @@ public class Enemy extends Actor
     
     protected SimpleTimer atkTimer;
     
-    public Enemy(double enemyHp, double enemyMaxHp, int enemySpeed, double enemyAtk, int enemyCoinAmt, String enemyGif, String attackGif){
+    protected GreenfootSound attackSound;
+    
+    public Enemy(double enemyHp, double enemyMaxHp, int enemySpeed, 
+    double enemyAtk, int enemyCoinAmt, String enemyGif, String attackGif,
+    GreenfootSound attackSound){
         gravity = Settings.gravity;
         isFacingRight = -1;
         hp = enemyHp;
@@ -47,19 +51,13 @@ public class Enemy extends Actor
         walkingGif = enemyGif;
         this.attackGif = attackGif;
         gif = new GifImage(enemyGif);
-    
+        
+        this.attackSound = attackSound;
     }
     
     public void act(){
         drawHp();
         gravity(enemyBottomY);
-        
-        if (!isStun){
-            moveToKnight();
-            if (isAtkDist()){
-            createAtk();
-            }
-        }
         
         if (stunTimer.millisElapsed() >= Settings.stunTime){
             unstun();
@@ -100,7 +98,9 @@ public class Enemy extends Actor
             else{
                 isMoving = false;
             }
-        }
+        } else{
+                isMoving = false;
+            }
         
         
     }
@@ -109,7 +109,7 @@ public class Enemy extends Actor
         Knight knight = getWorld().getObjects(Knight.class).get(0);
         double distFromKnight = Math.abs(knight.getX() - getX());
         
-        if (distFromKnight <= Settings.atkDist){
+        if (distFromKnight <= Settings.atkDist && knight.getY() > 300){
             return true;
         }
         return false;
@@ -118,6 +118,7 @@ public class Enemy extends Actor
     public void createAtk(){
         //Creates a parry first and if the knight didnt parry the attack, it will spawn the actual attack
         if (atkTimer.millisElapsed() >= Settings.baseEnemyAtkCD ){
+            attackSound.play();
             Parry attack = new Parry(this);
             getWorld().addObject(attack, getX() + (40 * isFacingRight), getY());
             atkTimer.mark();   

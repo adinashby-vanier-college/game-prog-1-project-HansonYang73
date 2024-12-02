@@ -7,8 +7,9 @@ import greenfoot.*;
  */
 public class Image extends Actor
 {
-    Artifact artifact;
-    int price;
+    private Artifact artifact;
+    private int price;
+    private GreenfootSound buySound = new GreenfootSound("buy.mp3");
     public Image(String file, Artifact artifact, int price){
         this.price = price;
         setImage(file);
@@ -21,6 +22,8 @@ public class Image extends Actor
     {
         Knight knight = (Knight) getOneIntersectingObject(Knight.class);
         if (Greenfoot.isKeyDown("E") && knight != null && Settings.coins >= price){
+            buySound.play();
+            
             getWorld().addObject(artifact, getX(), getY());
             artifact.getArtifact();
             Settings.coins -= price;
