@@ -250,7 +250,7 @@ public class Knight extends Actor
     }
     
     public void checkReset(){
-        if (Greenfoot.isKeyDown("R")){
+        if (Greenfoot.isKeyDown("R") && !isAlive){
             Settings.reset();
             hp = Settings.knightMaxHp;
             isAlive = true;

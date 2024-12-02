@@ -79,7 +79,7 @@ public class Settings
         baseAtkCD = 500; // in millisecond
         
         // Knight Setting
-        knightGif =  new  GifImage("knight_walking_right.gif");
+        knightGif =  new GifImage("knight_walking_right.gif");
         knightFrame1 = knightGif.getImages().get(0);
         baseAtk = 20;
         knightAtkMult = 1;
@@ -87,6 +87,7 @@ public class Settings
         knightMaxHp = 100;
         coins = 0;
         
+
         // Potion Setting
         healAmount = 50;
         potionAmount = 3;
@@ -95,7 +96,7 @@ public class Settings
         lifesteal = 0;
         regen = 0;
         
-        
+        Greenfoot.setWorld(new TutorialWorld());
     }
 }
 
