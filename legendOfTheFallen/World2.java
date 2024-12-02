@@ -38,11 +38,11 @@ public class World2 extends TemplateWorld
         StonePlatform stonePlatform3 = new StonePlatform();
         addObject(stonePlatform3,750,302);
         Zombie zombie = new Zombie();
-        addObject(zombie,816,361);
+        addObject(zombie,816,331);
         Werewolf werewolf = new Werewolf();
-        addObject(werewolf,955,350);
+        addObject(werewolf,955,330);
         Zombie zombie2 = new Zombie();
-        addObject(zombie2,443,356);
+        addObject(zombie2,443,336);
 
         addChest(488,185);
     }

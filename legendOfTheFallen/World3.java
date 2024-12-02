@@ -20,7 +20,7 @@ public class World3 extends TemplateWorld
     
     public void act(){
         if (canGoNextWorld(knight)){
-            goNextWorld(new TutorialWorld());
+            goNextWorld(new Shop(knight));
         }
     }
     
@@ -41,18 +41,16 @@ public class World3 extends TemplateWorld
         stonePlatform.setLocation(713,223);
         stonePlatform3.setLocation(720,90);
         addChest(761,55);
+        
         Zombie zombie = new Zombie();
-        addObject(zombie,881,347);
+        addObject(zombie,881,330);
         Werewolf werewolf = new Werewolf();
-        addObject(werewolf,713,363);
-        zombie.setLocation(897,355);
-        werewolf.setLocation(716,360);
+        addObject(werewolf,713,330);
+        zombie.setLocation(897,330);
+        werewolf.setLocation(716,330);
         Werewolf werewolf2 = new Werewolf();
         addObject(werewolf2,703,44);
-        Knight knight = new Knight();
-        addObject(knight,137,360);
-        werewolf2.setLocation(348,363);
-        werewolf.setLocation(717,370);
-        removeObject(knight);
+        werewolf2.setLocation(348,330);
+        werewolf.setLocation(717,330);
     }
 }

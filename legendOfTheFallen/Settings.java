@@ -24,11 +24,11 @@ public class Settings
     static int baseEnemyAtkCD = 2000; // in millisecond
     
     // Knight Setting
-    static GifImage knightGif =  new  GifImage("knight_walking_right.gif");
+    static GifImage knightGif =  new GifImage("knight_walking_right.gif");
     static GreenfootImage knightFrame1 = knightGif.getImages().get(0);
     static int knightWidth = 70;
     static int knightHeight = 80;
-    static int knightSpeed = 15;
+    static int knightSpeed = 5;
     static double baseAtk = 20;
     static double knightAtkMult = 1;
     static long dashCD = 1000; // in milisecond
@@ -42,7 +42,8 @@ public class Settings
     static double atkDist = 70; // in cell-size
     
     // Zombie Settings
-    static GreenfootImage zombieImage = new GreenfootImage("zombie.png");
+    static GifImage zombieGif = new GifImage("zombie_walking.gif");
+    static GreenfootImage zombieImage = zombieGif.getImages().get(0);
     static int zombieWidth = zombieImage.getWidth();
     static int zombieHeight = zombieImage.getHeight();
     static double zombieAtk = 20;
@@ -52,7 +53,8 @@ public class Settings
     static int zombieCoinAmt = 5;
     
     // Werewolf Settings
-    static GreenfootImage werewolfImage = new GreenfootImage("werewolf.png");
+    static GifImage werewolfGif = new GifImage("WolfWalking.gif");
+    static GreenfootImage werewolfImage = werewolfGif.getImages().get(0);
     static int werewolfWidth = werewolfImage.getWidth();
     static int werewolfHeight = werewolfImage.getHeight();
     static double werewolfAtk = 25;

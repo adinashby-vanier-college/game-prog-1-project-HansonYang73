@@ -21,7 +21,17 @@ public class Enemy extends Actor
     protected SimpleTimer stunTimer;
     protected boolean isStun;
     
-    public Enemy(double enemyHp, double enemyMaxHp, int enemySpeed, double enemyAtk, int enemyCoinAmt){
+    protected String walkingGif;
+    protected String attackGif;
+    protected GifImage gif;
+    
+    protected boolean isAttacking = false;
+    protected boolean isMoving = false;
+    protected int walking = 1;
+    
+    protected SimpleTimer atkTimer;
+    
+    public Enemy(double enemyHp, double enemyMaxHp, int enemySpeed, double enemyAtk, int enemyCoinAmt, String enemyGif, String attackGif){
         gravity = Settings.gravity;
         isFacingRight = -1;
         hp = enemyHp;
@@ -33,6 +43,42 @@ public class Enemy extends Actor
         
         stunTimer = new SimpleTimer();
         isStun = false;
+        
+        walkingGif = enemyGif;
+        this.attackGif = attackGif;
+        gif = new GifImage(enemyGif);
+    
+    }
+    
+    public void act(){
+        drawHp();
+        gravity(enemyBottomY);
+        
+        if (!isStun){
+            moveToKnight();
+            if (isAtkDist()){
+            createAtk();
+            }
+        }
+        
+        if (stunTimer.millisElapsed() >= Settings.stunTime){
+            unstun();
+        }
+        
+        if (isMoving || isAttacking){
+            setImage(gif.getCurrentImage());
+        }
+        else{
+            setImage(gif.getImages().get(0));
+        }
+        
+        if (atkTimer.millisElapsed() >= 800  && walking == 0){
+            changeWalkGif();
+            walking = 1;
+            isAttacking = false;
+        }
+        
+        checkDed();
     }
     
     public void moveToKnight(){
@@ -41,14 +87,22 @@ public class Enemy extends Actor
         
         if (distFromKnight <= Settings.aggroDist){ 
             if (knight.getX() > getX() && knight.getX() - getX() > Settings.atkDist){
+                isMoving = true;
                 move(speed);
                 faceRight();
             }
             else if (knight.getX() < getX() && getX() - knight.getX() > Settings.atkDist){
+                setImage(gif.getCurrentImage());
+                isMoving = true;
                 move(-speed);
                 faceLeft();
             }
+            else{
+                isMoving = false;
+            }
         }
+        
+        
     }
     
     public boolean isAtkDist(){
@@ -61,12 +115,14 @@ public class Enemy extends Actor
         return false;
     }
     
-    public void createAtk(SimpleTimer atkTimer){
+    public void createAtk(){
         //Creates a parry first and if the knight didnt parry the attack, it will spawn the actual attack
         if (atkTimer.millisElapsed() >= Settings.baseEnemyAtkCD ){
             Parry attack = new Parry(this);
             getWorld().addObject(attack, getX() + (40 * isFacingRight), getY());
             atkTimer.mark();   
+            changeAttackGif();
+            isAttacking = true;
         }
     }
     
@@ -79,16 +135,20 @@ public class Enemy extends Actor
         }
     }
     
-        public void faceLeft(){
+    public void faceLeft(){
         if (isFacingRight == 1){
-            getImage().mirrorHorizontally();
+            for (GreenfootImage image : gif.getImages()){
+                image.mirrorHorizontally();
+            }
         }
         isFacingRight = -1;
     }
     
     public void faceRight(){
         if (isFacingRight == -1){
-            getImage().mirrorHorizontally();
+            for (GreenfootImage image : gif.getImages()){
+                image.mirrorHorizontally();
+            }
         }
         isFacingRight = 1;
     }
@@ -132,6 +192,24 @@ public class Enemy extends Actor
             isStun = false;
             getWorld().removeObject(getOneIntersectingObject(Dizzy.class));
         }
-        
+    }
+    
+    public void changeWalkGif(){
+        int faceBefore = isFacingRight;
+        isFacingRight = -1;
+        gif = new GifImage(walkingGif);
+        if (faceBefore == 1){
+            faceRight();
+        }
+    }
+    
+    public void changeAttackGif(){
+        int faceBefore = isFacingRight;
+        isFacingRight = -1;
+        gif = new GifImage(attackGif);
+        if (faceBefore == 1){
+            faceRight();
+        }
+        walking = 0;
     }
 }

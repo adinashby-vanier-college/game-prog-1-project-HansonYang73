@@ -29,17 +29,18 @@ public class World1 extends TemplateWorld
     {
         addObject(knight, 5, knight.getY()); 
 
+        showPotion();
+        showCoin();
+        
         Zombie zombie = new Zombie();
         addObject(zombie,819,259);
         
-        showPotion();
-        showCoin();
 
         StonePlatform stonePlatform = new StonePlatform(200, 20);
         addObject(stonePlatform,830,297);
 
         stonePlatform.setLocation(806,309);
-        zombie.setLocation(644,362);
+        zombie.setLocation(644,342);
         
         addChest(817, 271);
     }

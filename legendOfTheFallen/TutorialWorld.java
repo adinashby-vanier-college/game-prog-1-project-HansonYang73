@@ -28,6 +28,7 @@ public class TutorialWorld extends TemplateWorld
     public void act(){
         if (canGoNextWorld(knight)){
             goNextWorld(new World1(knight));
+            //goNextWorld(new Shop(knight));
         }
     }
     
@@ -36,7 +37,7 @@ public class TutorialWorld extends TemplateWorld
 
         knight = new Knight();
         addObject(knight,149,352);
-        
+
         showPotion();
         showCoin();
 
@@ -56,5 +57,8 @@ public class TutorialWorld extends TemplateWorld
         IronChest ironChest2 = new IronChest();
         addObject(ironChest2,653,370);
         ironChest2.setLocation(660,374);
+        Werewolf werewolf = new Werewolf();
+        addObject(werewolf,896,244);
+        removeObject(werewolf);
     }
 }

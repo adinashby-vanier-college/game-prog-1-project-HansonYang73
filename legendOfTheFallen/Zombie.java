@@ -7,10 +7,12 @@ import greenfoot.*;
  */
 public class Zombie extends Enemy
 {
-    protected SimpleTimer atkTimer = new SimpleTimer();
     
     public Zombie(){
-        super(Settings.zombieHP, Settings.zombieMaxHp, Settings.zombieSpeed, Settings.zombieAtk, Settings.zombieCoinAmt);
+        super(Settings.zombieHP, Settings.zombieMaxHp, Settings.zombieSpeed, 
+                Settings.zombieAtk, Settings.zombieCoinAmt, "zombie_walking.gif", "ZombieAttack.gif");
+            
+        atkTimer = new SimpleTimer();
     }
     
     /**
@@ -21,21 +23,7 @@ public class Zombie extends Enemy
         enemyBottomY = getY() + Settings.zombieHeight / 2;
         enemyTopY = getY() - Settings.zombieHeight / 2 - 10;
         
-        drawHp();
-        gravity(enemyBottomY);
-        
-        if (!isStun){
-            moveToKnight();
-            if (isAtkDist()){
-            createAtk(atkTimer);
-            }
-        }
-        
-        if (stunTimer.millisElapsed() >= Settings.stunTime){
-            unstun();
-        }
-    
-        checkDed();
+        super.act();
     }
 
     

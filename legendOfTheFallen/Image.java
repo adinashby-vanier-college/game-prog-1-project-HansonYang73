@@ -8,7 +8,9 @@ import greenfoot.*;
 public class Image extends Actor
 {
     Artifact artifact;
-    public Image(String file, Artifact artifact){
+    int price;
+    public Image(String file, Artifact artifact, int price){
+        this.price = price;
         setImage(file);
         this.artifact = artifact;
     }
@@ -17,6 +19,13 @@ public class Image extends Actor
      */
     public void act()
     {
+        Knight knight = (Knight) getOneIntersectingObject(Knight.class);
+        if (Greenfoot.isKeyDown("E") && knight != null && Settings.coins >= price){
+            getWorld().addObject(artifact, getX(), getY());
+            artifact.getArtifact();
+            Settings.coins -= price;
+            getWorld().removeObject(this);
+        }
     }
     
     

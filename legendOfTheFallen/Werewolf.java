@@ -7,10 +7,11 @@ import greenfoot.*;
  */
 public class Werewolf extends Enemy
 {
-    protected SimpleTimer atkTimer = new SimpleTimer();
     
     public Werewolf(){
-        super(Settings.werewolfHP, Settings.werewolfMaxHp, Settings.werewolfSpeed, Settings.werewolfAtk, Settings.werewolfCoinAmt);
+        super(Settings.werewolfHP, Settings.werewolfMaxHp, Settings.werewolfSpeed, 
+                Settings.werewolfAtk, Settings.werewolfCoinAmt, "WolfWalking.gif", "WolfAttack.gif");
+        atkTimer = new SimpleTimer();
     }
     
     public void act()
@@ -18,20 +19,6 @@ public class Werewolf extends Enemy
         enemyBottomY = getY() + Settings.werewolfHeight / 2;
         enemyTopY = getY() - Settings.werewolfHeight / 2 - 10;
         
-        drawHp();
-        gravity(enemyBottomY);
-        
-        if (!isStun){
-            moveToKnight();
-            if (isAtkDist()){
-            createAtk(atkTimer);
-            }
-        }
-        
-        if (stunTimer.millisElapsed() >= Settings.stunTime){
-            unstun();
-        }
-    
-        checkDed();
+        super.act();
     }
 }

@@ -32,16 +32,16 @@ public class TemplateWorld extends World
     
     public void showCoin(){
         Coin coin = new Coin();
-        addObject(coin,Settings.worldWidth-70,36);
+        addObject(coin,Settings.worldWidth-75,25);
         CoinText coinText = new CoinText();
-        addObject(coinText,Settings.worldWidth-30,45);
+        addObject(coinText,Settings.worldWidth-35,33);
     }
     
     public void showPotion(){
         Potion potion = new Potion();
-        addObject(potion,21,36);
+        addObject(potion,30,25);
         PotionText potionText = new PotionText();
-        addObject(potionText,60,45);
+        addObject(potionText,70,33);
     }
     
     public void addChest(int x, int y){
