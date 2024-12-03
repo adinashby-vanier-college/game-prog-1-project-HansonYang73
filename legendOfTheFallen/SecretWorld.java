@@ -39,7 +39,7 @@ public class SecretWorld extends TemplateWorld
     }
     
     public void prepare(){
-        addObject(knight, 5, knight.getY()); 
+        addObject(knight, knight.getX(), 350); 
         showPotion();
         showCoin();
         StonePlatform stonePlatform = new StonePlatform();
