@@ -16,6 +16,7 @@ public class World3 extends TemplateWorld
         super();
         this.knight = knight;
         prepare();
+        createTorch();
     }
     
     public void act(){

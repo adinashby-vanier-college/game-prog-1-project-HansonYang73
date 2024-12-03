@@ -9,7 +9,7 @@ public class Potion2 extends Artifact
 {
 
     public void getArtifact(){
-        Settings.potionAmount += 2;
+        Settings.potionAmount += 1;
         getWorld().removeObject(this);
     }
 }

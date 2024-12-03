@@ -15,6 +15,7 @@ public class World1 extends TemplateWorld
         super();
         this.knight = knight;
         prepare();
+        createTorch();
         
         showTextWithBigBlackFont("Press 'F' to drink a potion (heals 50hp)", 350, 80, Color.WHITE, 20);
     }

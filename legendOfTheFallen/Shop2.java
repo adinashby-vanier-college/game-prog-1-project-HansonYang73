@@ -5,13 +5,13 @@ import greenfoot.*;
 /**
  * 
  */
-public class Shop extends TemplateWorld
+public class Shop2 extends TemplateWorld
 {
 
     /**
      * Constructor for objects of class Shop.
      */
-    public Shop(Knight knight)
+    public Shop2(Knight knight)
     {
         super();
         this.knight = knight;
@@ -19,7 +19,7 @@ public class Shop extends TemplateWorld
         createTorch();
     }
     
-    public Shop()
+    public Shop2()
     {
         super();
         this.knight = new Knight();
@@ -77,16 +77,29 @@ public class Shop extends TemplateWorld
         price4.setLocation(847,338);
         image2.setLocation(423,376);
         coin3.setLocation(433,341);
+        removeObject(image);
         removeObject(coin2);
         removeObject(price);
-        removeObject(price2);
-        removeObject(coin3);
+        removeObject(image3);
         removeObject(coin4);
         removeObject(price3);
         removeObject(coin5);
         removeObject(price4);
         removeObject(shield);
-        Gif gif = new Gif("FireShield.gif", new Shield(), 50);
-        addObject(gif,801,370);
+        removeObject(coin3);
+        removeObject(price2);
+        image2.setLocation(294,381);
+        Image image4 = new Image("elixir_strength.png", new ElixirStrength(), 125);
+        addObject(image4,454,373);
+        Gif gif = new Gif("LegendarySword.gif", new LegendarySword(), 125);
+        addObject(gif,596,375);
+        StonePlatform stonePlatform = new StonePlatform(1, 1);
+        addObject(stonePlatform,779,324);
+        StonePlatform stonePlatform2 = new StonePlatform(1, 1);
+        addObject(stonePlatform2,779,253);
+        StonePlatform stonePlatform3 = new StonePlatform(1, 1);
+        addObject(stonePlatform3,779,184);
+        StonePlatform stonePlatform4 = new StonePlatform(1, 1);
+        addObject(stonePlatform4,779,110);
     }
 }

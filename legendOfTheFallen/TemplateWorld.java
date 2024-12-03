@@ -81,4 +81,10 @@ public class TemplateWorld extends World
     static void stop(){
         bgMusic.stop();
     }
+    
+    public void createTorch(){
+        for (int i = 1; i <= 9; i++){
+            addObject(new Torch(), 100*i, 150);
+        }
+    }
 }

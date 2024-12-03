@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class World6 extends TemplateWorld
 {
-
+    private int one = 1;
+    private GreenfootSound growl = new GreenfootSound("MonsterGrowl2.mp3");
     /**
      * Constructor for objects of class World6.
      * 
@@ -26,11 +27,16 @@ public class World6 extends TemplateWorld
         this.knight = new Knight();
         addObject(knight, 5, 5);
         prepare();
+        createTorch();
     }
     
     public void act(){
+        if (getObjects(Enemy.class).size() == 0 && one == 1){
+            growl.play();
+            one--;
+        }
         if (canGoNextWorld(knight)){
-            goNextWorld(new Shop(knight));
+            goNextWorld(new Shop2(knight));
         }
     }
     

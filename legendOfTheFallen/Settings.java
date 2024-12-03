@@ -28,14 +28,14 @@ public class Settings
     static GreenfootImage knightFrame1 = knightGif.getImages().get(0);
     static int knightWidth = 70;
     static int knightHeight = 80;
-    static int knightSpeed = 5;
-    static double baseAtk = 20;
+    static int knightSpeed = 15;
+    static double baseAtk = 201;
     static double knightAtkMult = 1;
     static long dashCD = 1000; // in milisecond
     static int dashDist = 100;
     static int jumps = 1;
     static double knightMaxHp = 100;
-    static int coins = 0;
+    static int coins = 100;
     
     // Enemy Settings
     static double aggroDist = 400; // in cell-size
@@ -79,7 +79,7 @@ public class Settings
     static GreenfootImage potionImage = new GreenfootImage("potion.png");
     static int potionWidth = potionImage.getWidth();
     static int potionHeight = potionImage.getHeight();
-    static int healAmount = 50;
+    static int healAmount = 25;
     static int healCd = 1000;
     static int potionAmount = 3;
     

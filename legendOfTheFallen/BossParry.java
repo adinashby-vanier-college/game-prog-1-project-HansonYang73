@@ -40,7 +40,6 @@ public class BossParry extends Actor
         if (attack != null && timer.millisElapsed() <= Settings.parryTime){
             parrySound.play();
             enemy.stun();
-            isDed = true;
         }
     }
 

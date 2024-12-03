@@ -11,7 +11,7 @@ public class Price extends Actor
     
     public Price(int price){
         this.price = price;
-        setImage(new GreenfootImage("X " + price, 30, Color.BLACK, new Color(0,0,0,0)));
+        setImage(new GreenfootImage("X " + price, 30, Color.WHITE, new Color(0,0,0,0)));
     }
     
     /**

@@ -25,7 +25,7 @@ public class Parry extends Actor
     public void act()
     {
         getsParried();
-        if (timer.millisElapsed() >= Settings.parryTime){
+        if (timer.millisElapsed() >= 500){
             EnemyAttack attack = new EnemyAttack(enemy.atk, enemy.isFacingRight);
             getWorld().addObject(attack, getX(), getY());
             isDed = true;
@@ -37,10 +37,9 @@ public class Parry extends Actor
     
     public void getsParried(){
         Attack attack = (Attack) getOneIntersectingObject(Attack.class);
-        if (attack != null){
+        if (attack != null && timer.millisElapsed() <= Settings.parryTime){
             parrySound.play();
             enemy.stun();
-            isDed = true;
         }
     }
 

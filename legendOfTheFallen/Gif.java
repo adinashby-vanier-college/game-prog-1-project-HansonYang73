@@ -5,15 +5,16 @@ import greenfoot.*;
 /**
  * 
  */
-public class Image extends Actor
+public class Gif extends Actor
 {
     private Artifact artifact;
     private boolean yes = true;
     private int price;
     private GreenfootSound buySound = new GreenfootSound("buy.mp3");
-    public Image(String file, Artifact artifact, int price){
+    private GifImage gif;
+    public Gif(String file, Artifact artifact, int price){
         this.price = price;
-        setImage(file);
+        gif = new GifImage(file);
         this.artifact = artifact;
     }
     /**
@@ -25,6 +26,7 @@ public class Image extends Actor
             yes = false;
             create();
         }
+        setImage(gif.getCurrentImage());
         Knight knight = (Knight) getOneIntersectingObject(Knight.class);
         if (Greenfoot.isKeyDown("E") && knight != null && Settings.coins >= price){
             buySound.play();
