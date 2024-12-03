@@ -9,6 +9,7 @@ public class Demon extends Enemy
 {
     private int stunTimes = 0;
     private boolean phase2 = false;
+    private GreenfootSound growl = new GreenfootSound("MonsterGrowl2.mp3");
     
     public Demon(){
         super(Settings.demonHP, Settings.demonMaxHp, Settings.demonSpeed, 
@@ -23,6 +24,8 @@ public class Demon extends Enemy
         enemyTopY = getY() - Settings.demonHeight / 2 - 10;
         
         if (!phase2 && hp <= 1000){
+            phase 2 = true;
+            growl.play();
             speed = 2;
             Settings.baseEnemyAtkCD = 1000;
         }
