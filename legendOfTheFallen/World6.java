@@ -19,6 +19,8 @@ public class World6 extends TemplateWorld
         super();
         this.knight = knight;
         prepare();
+        
+        createTorch();
     }
     
     public World6()

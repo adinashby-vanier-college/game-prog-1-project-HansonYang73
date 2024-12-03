@@ -16,6 +16,8 @@ public class World4 extends TemplateWorld
         super();
         this.knight = knight;
         prepare();
+        
+        createTorch();
     }
     
     public World4()
@@ -24,6 +26,7 @@ public class World4 extends TemplateWorld
         this.knight = new Knight();
         addObject(knight, 5, 5);
         prepare();
+        
         createTorch();
     }
     

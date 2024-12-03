@@ -170,7 +170,10 @@ public class Enemy extends Actor
                 getWorld().removeObject(parry);
             }
             if (dizzy != null){
-                getWorld().removeObject(dizzy);
+                List<Dizzy> dizzies = getWorld().getObjects(Dizzy.class);
+                for (Dizzy dizzy1: dizzies){
+                    getWorld().removeObject(dizzy1);
+                }
             }
             getWorld().removeObject(enemyHpBar);
             getWorld().removeObject(this);
@@ -194,7 +197,6 @@ public class Enemy extends Actor
     public void unstun(){
         if (stunTimer.millisElapsed() >= Settings.stunTime){
             isStun = false;
-            getWorld().removeObject(getOneIntersectingObject(Dizzy.class));
         }
     }
     
