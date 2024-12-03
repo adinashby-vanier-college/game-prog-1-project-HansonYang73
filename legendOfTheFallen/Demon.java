@@ -24,7 +24,7 @@ public class Demon extends Enemy
         enemyTopY = getY() - Settings.demonHeight / 2 - 10;
         
         if (!phase2 && hp <= 1000){
-            phase 2 = true;
+            phase2 = true;
             growl.play();
             speed = 2;
             Settings.baseEnemyAtkCD = 1000;
