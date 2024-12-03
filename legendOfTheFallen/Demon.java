@@ -8,6 +8,7 @@ import greenfoot.*;
 public class Demon extends Enemy
 {
     private int stunTimes = 0;
+    private boolean phase2 = false;
     
     public Demon(){
         super(Settings.demonHP, Settings.demonMaxHp, Settings.demonSpeed, 
@@ -21,6 +22,11 @@ public class Demon extends Enemy
         enemyBottomY = getY() + Settings.demonHeight / 2;
         enemyTopY = getY() - Settings.demonHeight / 2 - 10;
         
+        if (!phase2 && hp <= 1000){
+            speed = 2;
+            atk = 35;
+            Settings.baseEnemyAtkCD = 1000;
+        }
         if (!isStun){
             moveToKnight();
             if (isAtkDist() && atkTimer.millisElapsed() >= Settings.baseEnemyAtkCD){

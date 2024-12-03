@@ -16,7 +16,7 @@ public class Settings
     static int worldHeight = 400;
     
     // Attack & Parry Settings
-    static int parryTime = 200; // in millisecond
+    static int parryTime = 150; // in millisecond
     static int stunTime = 2000; //in ms
     static int atkTime = 50; // in millisecond
     static int enemyAtkTime = 200; // in millisecond
@@ -114,9 +114,13 @@ public class Settings
         lifesteal = 0;
         regen = 0;
         
+        baseEnemyAtkCD = 1835;
+        
         BossWorld.stopMusic();
         TutorialWorld.stop();
         Greenfoot.setWorld(new TitlePage());
+        
+        
         
     }
 }
