@@ -28,7 +28,7 @@ public class Settings
     static GreenfootImage knightFrame1 = knightGif.getImages().get(0);
     static int knightWidth = 70;
     static int knightHeight = 80;
-    static int knightSpeed = 15;
+    static int knightSpeed = 5;
     static double baseAtk = 20;
     static double knightAtkMult = 1;
     static long dashCD = 1000; // in milisecond
