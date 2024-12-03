@@ -61,26 +61,27 @@ public class Enemy extends Actor
         
         if (stunTimer.millisElapsed() >= Settings.stunTime){
             unstun();
-            List<Dizzy> dizzies = getWorld().getObjects(Dizzy.class);
-            for (Dizzy dizzy1: dizzies){
-                getWorld().removeObject(dizzy1);
+            Actor dizzy = getOneIntersectingObject(Dizzy.class);
+            if (dizzy != null){
+                getWorld().removeObject(dizzy);
             }
             
         }
         
-        if (isMoving || isAttacking){
-            setImage(gif.getCurrentImage());
+        if (!isStun){
+            if (isMoving || isAttacking){
+                setImage(gif.getCurrentImage());
+            }
+            else{
+                setImage(gif.getImages().get(0));
+            }
+            
+            if (atkTimer.millisElapsed() >= 800  && walking == 0){
+                changeWalkGif();
+                walking = 1;
+                isAttacking = false;
+            }
         }
-        else{
-            setImage(gif.getImages().get(0));
-        }
-        
-        if (atkTimer.millisElapsed() >= 800  && walking == 0){
-            changeWalkGif();
-            walking = 1;
-            isAttacking = false;
-        }
-        
         checkDed();
     }
     

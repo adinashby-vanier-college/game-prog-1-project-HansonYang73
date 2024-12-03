@@ -16,7 +16,9 @@ public class LegendarySword extends Artifact
     public void getArtifact(){
         if (Settings.legenSwordAmt > 0){
             Settings.legenSwordAmt--;
-            Settings.baseAtk = 35;
+            if (Settings.baseAtk < 35){
+                Settings.baseAtk = 35;
+            }
             Settings.baseAtkCD = 500;
         }
         else{

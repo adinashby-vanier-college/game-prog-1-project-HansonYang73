@@ -40,6 +40,10 @@ public class Demon extends Enemy
         
         if (stunTimer.millisElapsed() >= Settings.stunTime){
             unstun();
+            Actor dizzy = getOneIntersectingObject(Dizzy.class);
+            if (dizzy != null){
+                getWorld().removeObject(dizzy);
+            }
         }
         
         if (isMoving || isAttacking){

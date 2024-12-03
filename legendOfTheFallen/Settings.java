@@ -89,8 +89,8 @@ public class Settings
     static int legenSwordAmt = 1;
     static int shieldAmt = 1;
     static int bloodTalismanAmt = 1;
-    static int leftCrestAmt = 2;
-    static int rightCrestAmt = 2;
+    static int leftCrestAmt = 1;
+    static int rightCrestAmt = 1;
     
     static void reset(){
         baseAtkCD = 1000; // in millisecond
@@ -113,6 +113,11 @@ public class Settings
         // Artifact Settings
         lifesteal = 0;
         regen = 0;
+        legenSwordAmt = 1;
+        shieldAmt = 1;
+        bloodTalismanAmt = 1;
+        leftCrestAmt = 1;
+        rightCrestAmt = 1;
         
         baseEnemyAtkCD = 1835;
         

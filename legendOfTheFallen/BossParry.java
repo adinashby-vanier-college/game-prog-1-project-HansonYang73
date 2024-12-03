@@ -10,6 +10,7 @@ public class BossParry extends Actor
     private SimpleTimer timer = new SimpleTimer();
     Enemy enemy;
     private boolean isDed = false;
+    private boolean isDed2 = false;
     
     private GreenfootSound parrySound = new GreenfootSound("parry.mp3");
     // can not attack
@@ -26,8 +27,10 @@ public class BossParry extends Actor
     {
         getsParried();
         if (timer.millisElapsed() >= 400){
-            BossAttack attack = new BossAttack(enemy.atk, enemy.isFacingRight);
-            getWorld().addObject(attack, getX(), 375);
+            if (!isDed2){
+                BossAttack attack = new BossAttack(enemy.atk, enemy.isFacingRight);
+                getWorld().addObject(attack, getX(), 375);
+            }
             isDed = true;
         }
         if (isDed){
@@ -38,6 +41,7 @@ public class BossParry extends Actor
     public void getsParried(){
         Attack attack = (Attack) getOneIntersectingObject(Attack.class);
         if (attack != null && timer.millisElapsed() <= Settings.parryTime){
+            isDed2 = true;
             parrySound.play();
             enemy.stun();
         }
