@@ -24,7 +24,6 @@ public class Demon extends Enemy
         
         if (!phase2 && hp <= 1000){
             speed = 2;
-            atk = 35;
             Settings.baseEnemyAtkCD = 1000;
         }
         if (!isStun){
