@@ -93,7 +93,7 @@ public class Settings
     static int rightCrestAmt = 2;
     
     static void reset(){
-        baseAtkCD = 500; // in millisecond
+        baseAtkCD = 1000; // in millisecond
         
         // Knight Setting
         knightGif =  new GifImage("knight_walking_right.gif");
