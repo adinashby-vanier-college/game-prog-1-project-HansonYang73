@@ -61,6 +61,11 @@ public class Enemy extends Actor
         
         if (stunTimer.millisElapsed() >= Settings.stunTime){
             unstun();
+            List<Dizzy> dizzies = getWorld().getObjects(Dizzy.class);
+            for (Dizzy dizzy1: dizzies){
+                getWorld().removeObject(dizzy1);
+            }
+            
         }
         
         if (isMoving || isAttacking){

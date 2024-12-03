@@ -16,7 +16,7 @@ public class Settings
     static int worldHeight = 400;
     
     // Attack & Parry Settings
-    static int parryTime = 100; // in millisecond
+    static int parryTime = 200; // in millisecond
     static int stunTime = 2000; //in ms
     static int atkTime = 50; // in millisecond
     static int enemyAtkTime = 200; // in millisecond
@@ -71,8 +71,8 @@ public class Settings
     static int demonHeight = demonImage.getHeight();
     static double demonAtk = 45;
     static int demonSpeed = 1;
-    static int demonMaxHp = 600;
-    static double demonHP = 600;
+    static int demonMaxHp = 2000;
+    static double demonHP = 2000;
     static int demonCoinAmt = 10;
     
     // Potion Setting
@@ -107,7 +107,7 @@ public class Settings
         knockback = 45;
 
         // Potion Setting
-        healAmount = 50;
+        healAmount = 25;
         potionAmount = 3;
         
         // Artifact Settings

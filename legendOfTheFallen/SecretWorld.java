@@ -34,7 +34,7 @@ public class SecretWorld extends TemplateWorld
     
     public void act(){
         if (canGoNextWorld(knight)){
-            goNextWorld(new BossWorld(knight));
+            goNextWorld(new Shop3(knight));
         }
     }
     
@@ -78,5 +78,16 @@ public class SecretWorld extends TemplateWorld
         diamondChest.setLocation(431,240);
         stonePlatform2.setLocation(300,343);
         diamondChest.setLocation(435,237);
+        stonePlatform.setLocation(190,348);
+        stonePlatform.setLocation(139,350);
+        stonePlatform.setLocation(179,338);
+        stonePlatform.setLocation(110,339);
+        stonePlatform.setLocation(174,346);
+        stonePlatform.setLocation(150,343);
+        stonePlatform.setLocation(81,273);
+        stonePlatform.setLocation(144,340);
+        stonePlatform.setLocation(150,345);
+        stonePlatform.setLocation(144,341);
+        stonePlatform3.setLocation(696,342);
     }
 }
