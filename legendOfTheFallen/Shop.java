@@ -20,7 +20,7 @@ public class Shop extends TemplateWorld
     
     public void act(){
         if (canGoNextWorld(knight)){
-            goNextWorld(new World3(knight));
+            goNextWorld(new World4(knight));
         }
     }
     
