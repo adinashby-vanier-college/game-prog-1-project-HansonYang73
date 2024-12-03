@@ -16,7 +16,7 @@ public class Settings
     static int worldHeight = 400;
     
     // Attack & Parry Settings
-    static int parryTime = 50; // in millisecond
+    static int parryTime = 100; // in millisecond
     static int stunTime = 2000; //in ms
     static int atkTime = 50; // in millisecond
     static int enemyAtkTime = 200; // in millisecond
@@ -29,13 +29,13 @@ public class Settings
     static int knightWidth = 70;
     static int knightHeight = 80;
     static int knightSpeed = 15;
-    static double baseAtk = 201;
+    static double baseAtk = 20;
     static double knightAtkMult = 1;
     static long dashCD = 1000; // in milisecond
     static int dashDist = 100;
     static int jumps = 1;
     static double knightMaxHp = 100;
-    static int coins = 100;
+    static int coins = 0;
     
     // Enemy Settings
     static double aggroDist = 400; // in cell-size
@@ -104,6 +104,7 @@ public class Settings
         knightMaxHp = 100;
         coins = 0;
         
+        knockback = 45;
 
         // Potion Setting
         healAmount = 50;
@@ -113,7 +114,10 @@ public class Settings
         lifesteal = 0;
         regen = 0;
         
+        BossWorld.stopMusic();
+        TutorialWorld.stop();
         Greenfoot.setWorld(new TitlePage());
+        
     }
 }
 

@@ -28,8 +28,11 @@ public class Shop2 extends TemplateWorld
     }
     
     public void act(){
+        if (knight.getY() <= 1){
+            goNextWorld(new SecretWorld(knight));
+        }
         if (canGoNextWorld(knight)){
-            goNextWorld(new World4(knight));
+            goNextWorld(new BossWorld(knight));
         }
     }
     

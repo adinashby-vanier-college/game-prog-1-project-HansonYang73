@@ -28,6 +28,7 @@ public class Knight extends Actor
     private GreenfootSound pickupSound = new GreenfootSound("pick_up.mp3");
     private GreenfootSound jumpSound = new GreenfootSound("jump.mp3");
     private GreenfootSound dashSound = new GreenfootSound("dash1.mp3");
+    private GreenfootSound death = new GreenfootSound("DeathSound.mp3");
     
     private boolean isAlive = true;
     
@@ -194,6 +195,7 @@ public class Knight extends Actor
 
             getWorld().removeObject(knightHpBar);
             isAlive = false;
+            death.play();
         }
     }
     

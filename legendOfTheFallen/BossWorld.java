@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BossWorld extends TemplateWorld
 {
-
+    static GreenfootSound bgMusic = new GreenfootSound("FinalBossMusic.mp3");
+    static GreenfootSound flap = new GreenfootSound("WingFlap.mp3");
     /**
      * Constructor for objects of class BossWorld.
      * 
@@ -18,7 +19,9 @@ public class BossWorld extends TemplateWorld
         super();
         this.knight = knight;
         prepare();
-        
+        TemplateWorld.stop();
+        bgMusic.playLoop();
+        flap.playLoop();
     }
     
     public BossWorld()
@@ -27,11 +30,15 @@ public class BossWorld extends TemplateWorld
         this.knight = new Knight();
         addObject(knight, 5, 5);
         prepare();
+        TemplateWorld.stop();
+        bgMusic.playLoop();
+        flap.playLoop();
     }
     
     public void act(){
-        if (canGoNextWorld(knight)){
-            goNextWorld(new World2(knight));
+        if (getObjects(Enemy.class).size() == 0){
+            BossWorld.stopMusic();
+            goNextWorld(new Win());
         }
     }
     
@@ -41,6 +48,13 @@ public class BossWorld extends TemplateWorld
 
         showPotion();
         showCoin();
-        
+
+        Demon demon = new Demon();
+        addObject(demon,866,214);
+    }
+    
+    static void stopMusic(){
+        bgMusic.stop();
+        flap.stop();
     }
 }
