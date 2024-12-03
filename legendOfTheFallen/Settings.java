@@ -16,12 +16,12 @@ public class Settings
     static int worldHeight = 400;
     
     // Attack & Parry Settings
-    static int parryTime = 300; // in millisecond
+    static int parryTime = 50; // in millisecond
     static int stunTime = 2000; //in ms
-    static int atkTime = 200; // in millisecond
+    static int atkTime = 50; // in millisecond
     static int enemyAtkTime = 200; // in millisecond
-    static int baseAtkCD = 1000; // in millisecond
-    static int baseEnemyAtkCD = 2000; // in millisecond
+    static int baseAtkCD = 963; // in millisecond
+    static int baseEnemyAtkCD = 1835; // in millisecond
     
     // Knight Setting
     static GifImage knightGif =  new GifImage("knight_walking_right.gif");
@@ -71,8 +71,8 @@ public class Settings
     static int demonHeight = demonImage.getHeight();
     static double demonAtk = 45;
     static int demonSpeed = 1;
-    static int demonMaxHp = 1200;
-    static double demonHP = 1200;
+    static int demonMaxHp = 600;
+    static double demonHP = 600;
     static int demonCoinAmt = 10;
     
     // Potion Setting
@@ -86,6 +86,11 @@ public class Settings
     // Artifact Settings
     static int lifesteal = 0;
     static int regen = 0;
+    static int legenSwordAmt = 1;
+    static int shieldAmt = 1;
+    static int bloodTalismanAmt = 1;
+    static int leftCrestAmt = 2;
+    static int rightCrestAmt = 2;
     
     static void reset(){
         baseAtkCD = 500; // in millisecond

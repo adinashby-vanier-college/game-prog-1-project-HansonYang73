@@ -55,15 +55,11 @@ public class Attack extends Actor
         }
     }
     
-    public void changeGif(){
-        
-    }
-    
     public double getAtk(){
         return atk;
     }
 
     public void scaleImage(){
-        getImage().scale(30, 50);
+        getImage().scale(50, 50);
     }
 }

@@ -12,8 +12,15 @@ public class Shield extends Artifact
     public void act(){
         setImage(shieldGif.getCurrentImage());
     }
+    
     public void getArtifact(){
-        Settings.knockback = 0;
+        if (Settings.shieldAmt > 0){
+            Settings.shieldAmt--;
+            Settings.knockback = 0;
+        }
+        else{
+            Settings.coins += 50;
+        }
         getWorld().removeObject(this);
     }
 }

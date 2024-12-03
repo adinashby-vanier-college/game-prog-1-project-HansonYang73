@@ -14,8 +14,14 @@ public class LegendarySword extends Artifact
     }
     
     public void getArtifact(){
-        Settings.baseAtk = 35;
-        Settings.baseAtkCD = 500;
+        if (Settings.legenSwordAmt > 0){
+            Settings.legenSwordAmt--;
+            Settings.baseAtk = 35;
+            Settings.baseAtkCD = 500;
+        }
+        else{
+            Settings.coins += 100;
+        }
         getWorld().removeObject(this);
     }
 }
