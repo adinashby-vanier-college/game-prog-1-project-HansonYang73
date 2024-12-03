@@ -28,32 +28,47 @@ public class World4 extends TemplateWorld
     
     public void act(){
         if (canGoNextWorld(knight)){
-            goNextWorld(new Shop(knight));
+            goNextWorld(new World5(knight));
         }
     }
     
     public void prepare(){
-        // addObject(knight, 5, knight.getY()); 
+        addObject(knight, 5, knight.getY()); 
         showPotion();
         showCoin();
+
         StonePlatform stonePlatform = new StonePlatform();
-        addObject(stonePlatform,500,200);
-        StonePlatform stonePlatform2 = new StonePlatform(70, 20);
-        addObject(stonePlatform2,743,127);
-        stonePlatform2.setLocation(817,113);
-        StonePlatform stonePlatform3 = new StonePlatform();
-        addObject(stonePlatform3,136,277);
-        stonePlatform3.setLocation(144,300);
-        stonePlatform2.setLocation(887,112);
-        stonePlatform3.setLocation(187,311);
-        stonePlatform.setLocation(490,205);
+        addObject(stonePlatform,222,290);
+        stonePlatform.setLocation(201,301);
+        StonePlatform stonePlatform2 = new StonePlatform();
+        addObject(stonePlatform2,723,196);
+        StonePlatform stonePlatform3 = new StonePlatform(60, 20);
+        addObject(stonePlatform3,179,119);
+        stonePlatform2.setLocation(607,219);
+        stonePlatform3.setLocation(124,138);
         IronChest ironChest = new IronChest();
-        addObject(ironChest,868,75);
-        stonePlatform.setLocation(536,208);
-        stonePlatform.setLocation(594,205);
-        stonePlatform.setLocation(563,218);
-        stonePlatform2.setLocation(824,142);
-        ironChest.setLocation(860,100);
-        stonePlatform.setLocation(581,209);
+        addObject(ironChest,126,103);
+        stonePlatform.setLocation(280,316);
+        Werewolf werewolf = new Werewolf();
+        addObject(werewolf,616,343);
+        Werewolf werewolf2 = new Werewolf();
+        addObject(werewolf2,755,344);
+        Werewolf werewolf3 = new Werewolf();
+        addObject(werewolf3,670,344);
+        Zombie zombie = new Zombie();
+        addObject(zombie,317,343);
+        werewolf.setLocation(603,344);
+        werewolf.setLocation(664,333);
+        werewolf3.setLocation(684,350);
+        werewolf2.setLocation(749,352);
+        Zombie zombie2 = new Zombie();
+        addObject(zombie2,394,344);
+        zombie.setLocation(242,362);
+        zombie.setLocation(242,344);
+        zombie.setLocation(237,313);
+        werewolf.setLocation(704,313);
+        werewolf2.setLocation(811,315);
+        werewolf.setLocation(737,308);
+        werewolf3.setLocation(639,333);
     }
 }
