@@ -9,7 +9,13 @@ public class BloodTalisman extends Artifact
 {
 
     public void getArtifact(){
-        Settings.healAmount = (int) (Settings.knightMaxHp * 0.75);
+        if (Settings.bloodTalismanAmt > 0){
+            Settings.bloodTalismanAmt--;
+            Settings.healAmount = (int) (Settings.knightMaxHp * 0.75);
+        }
+        else{
+            Settings.coins += 50;
+        }
         getWorld().removeObject(this);
     }
 }

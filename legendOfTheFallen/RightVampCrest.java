@@ -9,7 +9,13 @@ public class RightVampCrest extends Artifact
 {
 
     public void getArtifact(){
-        Settings.regen++;
+        if (Settings.rightCrestAmt > 0){
+            Settings.rightCrestAmt--;
+            Settings.regen++;
+        }
+        else{
+            Settings.coins += 50;
+        }
         getWorld().removeObject(this);
     }
 }

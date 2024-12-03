@@ -26,8 +26,9 @@ public class Zombie extends Enemy
         
         if (!isStun){
             moveToKnight();
-            if (isAtkDist()){
-            createAtk();
+            if (isAtkDist() && atkTimer.millisElapsed() >= Settings.baseEnemyAtkCD){
+                atkTimer.mark();
+                createAtk();
             }
         }
         

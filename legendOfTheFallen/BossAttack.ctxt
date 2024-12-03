@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=BossAttack
+comment0.text=\r\n\ \r\n
+comment1.params=enemyAtk\ direction
+comment1.target=BossAttack(double,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ attackKnight()
+comment4.params=
+comment4.target=void\ scaleImage()
+numComments=5

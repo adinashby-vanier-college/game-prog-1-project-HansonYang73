@@ -7,7 +7,6 @@ import greenfoot.*;
  */
 public class Werewolf extends Enemy
 {
-    
     public Werewolf(){
         super(Settings.werewolfHP, Settings.werewolfMaxHp, Settings.werewolfSpeed, 
         Settings.werewolfAtk, Settings.werewolfCoinAmt, "WolfWalking.gif", 
@@ -22,8 +21,9 @@ public class Werewolf extends Enemy
         
         if (!isStun){
             moveToKnight();
-            if (isAtkDist()){
-            createAtk();
+            if (isAtkDist() && atkTimer.millisElapsed() >= Settings.baseEnemyAtkCD){
+                atkTimer.mark();
+                createAtk();
             }
         }
         

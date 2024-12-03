@@ -84,12 +84,12 @@ public class Enemy extends Actor
         double distFromKnight = Math.abs(knight.getX() - getX());
         
         if (distFromKnight <= Settings.aggroDist){ 
-            if (knight.getX() > getX() && knight.getX() - getX() > Settings.atkDist){
+            if (knight.getX() > getX() && distFromKnight > Settings.atkDist){
                 isMoving = true;
                 move(speed);
                 faceRight();
             }
-            else if (knight.getX() < getX() && getX() - knight.getX() > Settings.atkDist){
+            else if (knight.getX() < getX() && distFromKnight > Settings.atkDist){
                 setImage(gif.getCurrentImage());
                 isMoving = true;
                 move(-speed);
@@ -97,6 +97,12 @@ public class Enemy extends Actor
             }
             else{
                 isMoving = false;
+            }
+            if (knight.getX() > getX()){
+                faceRight();
+            }
+            else{
+                faceLeft();
             }
         } else{
                 isMoving = false;
@@ -116,15 +122,12 @@ public class Enemy extends Actor
     }
     
     public void createAtk(){
-        //Creates a parry first and if the knight didnt parry the attack, it will spawn the actual attack
-        if (atkTimer.millisElapsed() >= Settings.baseEnemyAtkCD ){
-            attackSound.play();
-            Parry attack = new Parry(this);
-            getWorld().addObject(attack, getX() + (40 * isFacingRight), getY());
-            atkTimer.mark();   
-            changeAttackGif();
-            isAttacking = true;
-        }
+        attackSound.play();
+        Parry attack = new Parry(this);
+        getWorld().addObject(attack, getX() + (40 * isFacingRight), getY());   
+        changeAttackGif();
+        isAttacking = true;
+        
     }
     
     public void gravity(double bottomY){
@@ -185,7 +188,7 @@ public class Enemy extends Actor
     public void stun(){
         stunTimer.mark();
         isStun = true;
-        getWorld().addObject(new Dizzy(), getX(), (int) enemyTopY + 10);
+        getWorld().addObject(new Dizzy(), getX() + 5, (int) enemyTopY + 15);
     }
     
     public void unstun(){
